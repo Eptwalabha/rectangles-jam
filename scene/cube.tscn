@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckp3hw4btpj7n"]
+
+[ext_resource type="Script" path="res://scene/cube.gd" id="1_8itxm"]
+[ext_resource type="Texture2D" uid="uid://utus8jsonei8" path="res://assets/img/white-dot.png" id="1_hvxtl"]
+
+[node name="Cube" type="Node2D"]
+script = ExtResource("1_8itxm")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(32, 32)
+texture = ExtResource("1_hvxtl")
