@@ -11,8 +11,14 @@ func _ready() -> void:
 func fade_in() -> void:
 	fade.fade_in()
 
-func _on_fade_fade_in_ended() -> void:
+func fade_in_over() -> void:
 	pass
 
-func _on_fade_fade_out_ended() -> void:
+func fade_out_over() -> void:
 	pass
+
+func _on_fade_fade_in_ended() -> void:
+	fade_in_over()
+
+func _on_fade_fade_out_ended() -> void:
+	fade_out_over()

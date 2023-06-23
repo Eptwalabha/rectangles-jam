@@ -20,7 +20,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_sq0tv"]
 resource_name = "fade-in"
-length = 0.5
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -28,7 +28,7 @@ tracks/0/path = NodePath("Cube:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
@@ -40,7 +40,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.5),
+"times": PackedFloat32Array(0.8),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [&"fade_in_ended"],
@@ -50,7 +50,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_rp3wv"]
 resource_name = "fade-out"
-length = 0.5
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -58,7 +58,7 @@ tracks/0/path = NodePath("Cube:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
@@ -70,7 +70,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.5),
+"times": PackedFloat32Array(0.8),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [&"fade_out_ended"],

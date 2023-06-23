@@ -1,10 +1,27 @@
-[gd_scene load_steps=9 format=3 uid="uid://do4nd0xlmkq4l"]
+[gd_scene load_steps=10 format=3 uid="uid://c6ynh7x5tp3l"]
 
 [ext_resource type="PackedScene" uid="uid://6jk4mjlkjis2" path="res://levels/Level.tscn" id="1_er2pw"]
 [ext_resource type="Script" path="res://levels/level_enter_train.gd" id="2_84nus"]
-[ext_resource type="PackedScene" uid="uid://cdx72cjojw5gs" path="res://levels/character.tscn" id="2_dlo5i"]
 [ext_resource type="PackedScene" uid="uid://ckp3hw4btpj7n" path="res://scene/cube.tscn" id="2_ipbdx"]
 [ext_resource type="PackedScene" uid="uid://c0dm3th02w36g" path="res://levels/train.tscn" id="2_wr1vf"]
+[ext_resource type="PackedScene" uid="uid://d36fvxaod3hll" path="res://scene/characters/player.tscn" id="4_jvvrs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8i5f"]
+size = Vector2(91, 120)
+
+[sub_resource type="Animation" id="Animation_3a4kv"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scene/ParallaxBackground/Train/Train:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-600, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_650gr"]
 resource_name = "train"
@@ -12,7 +29,7 @@ length = 10.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Scene/Train/Train")
+tracks/0/path = NodePath("Scene/ParallaxBackground/Train/Train")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -36,35 +53,21 @@ tracks/1/keys = {
 "times": PackedFloat32Array(10),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [-1],
+"args": [4],
 "method": &"start"
 }]
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Scene/Train/Train:position:x")
+tracks/2/path = NodePath("Scene/ParallaxBackground/Train/Train:position:x")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(-600, 0, 0, 0.25, 0, 300, -1, 0, 1, 0, 300, 0, 0, 1, 0, 1200, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.1, 2, 8, 10)
+"points": PackedFloat32Array(-600, 0, 0, 0.25, 0, 540, -1, 0, 1, 0, 540, 0, 0, 1, 0, 1800, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2, 8, 10)
 }
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Scene/Train/Train:position:y")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(),
-"points": PackedFloat32Array(),
-"times": PackedFloat32Array()
-}
-
-[sub_resource type="Animation" id="Animation_3a4kv"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qpqio"]
 _data = {
@@ -75,38 +78,63 @@ _data = {
 [node name="LevelEnterTrain" instance=ExtResource("1_er2pw")]
 script = ExtResource("2_84nus")
 
-[node name="Back" type="ParallaxBackground" parent="Scene" index="0"]
-layer = 1
+[node name="Camera" parent="." index="0"]
+anchor_mode = 1
+limit_left = 0
+limit_top = 0
+limit_right = 1200
+limit_bottom = 600
 
-[node name="Train" type="ParallaxBackground" parent="Scene" index="1"]
-layer = 1
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Scene" index="0"]
+layer = 2
 
-[node name="Train" parent="Scene/Train" index="0" instance=ExtResource("2_wr1vf")]
+[node name="Back" type="ParallaxLayer" parent="Scene/ParallaxBackground" index="0"]
+
+[node name="Train" type="ParallaxLayer" parent="Scene/ParallaxBackground" index="1"]
+motion_scale = Vector2(0.9, 0.9)
+
+[node name="Node2D" type="Node2D" parent="Scene/ParallaxBackground/Train" index="0"]
+position = Vector2(540, 0)
+
+[node name="Train" parent="Scene/ParallaxBackground/Train" index="1" instance=ExtResource("2_wr1vf")]
 position = Vector2(-600, 400)
 
-[node name="Station" type="ParallaxBackground" parent="Scene" index="2"]
-layer = 1
+[node name="MouseInteract" type="Area2D" parent="Scene/ParallaxBackground/Train" index="2"]
+position = Vector2(540, 400)
 
-[node name="Character" parent="Scene/Station" index="0" instance=ExtResource("2_dlo5i")]
-position = Vector2(83, 470)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/ParallaxBackground/Train/MouseInteract" index="0"]
+shape = SubResource("RectangleShape2D_d8i5f")
 
-[node name="Ground" parent="Scene" index="3" instance=ExtResource("2_ipbdx")]
+[node name="Station" type="ParallaxLayer" parent="Scene/ParallaxBackground" index="2"]
+
+[node name="Player" parent="Scene/ParallaxBackground/Station" index="0" instance=ExtResource("4_jvvrs")]
+modulate = Color(0.027451, 1, 0.2, 1)
+position = Vector2(0, 470)
+color = Color(0.027451, 1, 0.2, 1)
+
+[node name="Foreground" type="ParallaxLayer" parent="Scene/ParallaxBackground" index="3"]
+motion_scale = Vector2(0, 0)
+
+[node name="Ground" parent="Scene/ParallaxBackground/Foreground" index="0" instance=ExtResource("2_ipbdx")]
 position = Vector2(300, 550)
 scale = Vector2(20, 5)
 metadata/_edit_lock_ = true
 
-[node name="Ceiling" parent="Scene" index="4" instance=ExtResource("2_ipbdx")]
+[node name="Ceiling" parent="Scene/ParallaxBackground/Foreground" index="1" instance=ExtResource("2_ipbdx")]
 position = Vector2(300, 50)
 scale = Vector2(20, 5)
 metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="." index="4"]
 wait_time = 3.0
-autostart = true
+one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
 libraries = {
 "": SubResource("AnimationLibrary_qpqio")
 }
 
+[connection signal="area_entered" from="Scene/ParallaxBackground/Train/MouseInteract" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Scene/ParallaxBackground/Train/MouseInteract" to="." method="_on_area_2d_area_exited"]
+[connection signal="input_event" from="Scene/ParallaxBackground/Train/MouseInteract" to="." method="_on_area_2d_input_event"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
