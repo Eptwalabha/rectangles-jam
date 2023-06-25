@@ -5,7 +5,9 @@
 
 [node name="NPC" instance=ExtResource("1_1xdat")]
 script = ExtResource("2_nf5t3")
+target = 0
 
-[node name="Node" type="Node" parent="." index="2"]
+[node name="Idle" type="Timer" parent="." index="2"]
+one_shot = true
 
-[node name="Target" type="Marker2D" parent="Node" index="0"]
+[connection signal="timeout" from="Idle" to="." method="_on_idle_timeout"]

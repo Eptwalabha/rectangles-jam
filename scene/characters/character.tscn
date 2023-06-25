@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bweimn7xy5ccn"]
+[gd_scene load_steps=7 format=3 uid="uid://bweimn7xy5ccn"]
 
 [ext_resource type="Script" path="res://scene/characters/character.gd" id="1_eeulc"]
 [ext_resource type="PackedScene" uid="uid://ckp3hw4btpj7n" path="res://scene/cube.tscn" id="1_ibpys"]
@@ -28,12 +28,73 @@ tracks/1/keys = {
 "times": PackedFloat32Array()
 }
 
+[sub_resource type="Animation" id="Animation_tvmlh"]
+resource_name = "vanish"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.131758, -0.808273, 0, -0.3, 0.00855522, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"vanished"],
+"method": &"emit_signal"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_edswb"]
+resource_name = "appear"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.0552923, -0.25, 0, 0.2, 0.753276, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"appeared"],
+"method": &"emit_signal"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dhyq3"]
 _data = {
+"appear": SubResource("Animation_edswb"),
+"vanish": SubResource("Animation_tvmlh"),
 "walk": SubResource("Animation_22mmq")
 }
 
 [node name="Character" type="Node2D"]
+modulate = Color(1, 1, 1, 0.0552923)
 script = ExtResource("1_eeulc")
 
 [node name="Pivot" type="Node2D" parent="."]
