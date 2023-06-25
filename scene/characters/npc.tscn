@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6h4v8xup5uv1"]
+
+[ext_resource type="PackedScene" uid="uid://bweimn7xy5ccn" path="res://scene/characters/character.tscn" id="1_1xdat"]
+[ext_resource type="Script" path="res://scene/characters/npc.gd" id="2_nf5t3"]
+
+[node name="NPC" instance=ExtResource("1_1xdat")]
+script = ExtResource("2_nf5t3")
+
+[node name="Node" type="Node" parent="." index="2"]
+
+[node name="Target" type="Marker2D" parent="Node" index="0"]

@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://c6ynh7x5tp3l"]
+[gd_scene load_steps=11 format=3 uid="uid://chwmeiaaojf3p"]
 
 [ext_resource type="PackedScene" uid="uid://6jk4mjlkjis2" path="res://levels/Level.tscn" id="1_er2pw"]
 [ext_resource type="Script" path="res://levels/level_enter_train.gd" id="2_84nus"]
 [ext_resource type="PackedScene" uid="uid://ckp3hw4btpj7n" path="res://scene/cube.tscn" id="2_ipbdx"]
-[ext_resource type="PackedScene" uid="uid://c0dm3th02w36g" path="res://levels/train.tscn" id="2_wr1vf"]
+[ext_resource type="PackedScene" uid="uid://c0dm3th02w36g" path="res://scene/train/train.tscn" id="2_wr1vf"]
 [ext_resource type="PackedScene" uid="uid://d36fvxaod3hll" path="res://scene/characters/player.tscn" id="4_jvvrs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d8i5f"]
@@ -21,6 +21,30 @@ tracks/0/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(-600, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scene/ParallaxBackground/Station/Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 470)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Scene/ParallaxBackground/Station/Player:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_650gr"]
@@ -69,14 +93,56 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 2, 8, 10)
 }
 
+[sub_resource type="Animation" id="Animation_hj7w3"]
+resource_name = "player intro"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scene/ParallaxBackground/Station/Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-250, 470), Vector2(250, 470)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scene/ParallaxBackground/Station/Player:moving")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Scene/ParallaxBackground/Station/Player:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qpqio"]
 _data = {
 "RESET": SubResource("Animation_3a4kv"),
+"player intro": SubResource("Animation_hj7w3"),
 "train": SubResource("Animation_650gr")
 }
 
 [node name="LevelEnterTrain" instance=ExtResource("1_er2pw")]
 script = ExtResource("2_84nus")
+next_level = "res://levels/level_enter_train.tscn"
 
 [node name="Camera" parent="." index="0"]
 anchor_mode = 1
@@ -98,6 +164,7 @@ position = Vector2(540, 0)
 
 [node name="Train" parent="Scene/ParallaxBackground/Train" index="1" instance=ExtResource("2_wr1vf")]
 position = Vector2(-600, 400)
+interactible = false
 
 [node name="MouseInteract" type="Area2D" parent="Scene/ParallaxBackground/Train" index="2"]
 position = Vector2(540, 400)
@@ -107,22 +174,30 @@ shape = SubResource("RectangleShape2D_d8i5f")
 
 [node name="Station" type="ParallaxLayer" parent="Scene/ParallaxBackground" index="2"]
 
-[node name="Player" parent="Scene/ParallaxBackground/Station" index="0" instance=ExtResource("4_jvvrs")]
+[node name="npc1" type="Node2D" parent="Scene/ParallaxBackground/Station" index="0"]
+position = Vector2(0, 475)
+
+[node name="Player" parent="Scene/ParallaxBackground/Station" index="1" instance=ExtResource("4_jvvrs")]
+visible = false
 modulate = Color(0.027451, 1, 0.2, 1)
 position = Vector2(0, 470)
 color = Color(0.027451, 1, 0.2, 1)
+moving = true
 
 [node name="Foreground" type="ParallaxLayer" parent="Scene/ParallaxBackground" index="3"]
-motion_scale = Vector2(0, 0)
+motion_scale = Vector2(1.1, 1.1)
 
-[node name="Ground" parent="Scene/ParallaxBackground/Foreground" index="0" instance=ExtResource("2_ipbdx")]
-position = Vector2(300, 550)
-scale = Vector2(20, 5)
+[node name="npc2" type="Node2D" parent="Scene/ParallaxBackground/Foreground" index="0"]
+position = Vector2(0, 475)
+
+[node name="Ground" parent="Scene/ParallaxBackground/Foreground" index="1" instance=ExtResource("2_ipbdx")]
+position = Vector2(700, 550)
+scale = Vector2(60, 5)
 metadata/_edit_lock_ = true
 
-[node name="Ceiling" parent="Scene/ParallaxBackground/Foreground" index="1" instance=ExtResource("2_ipbdx")]
-position = Vector2(300, 50)
-scale = Vector2(20, 5)
+[node name="Ceiling" parent="Scene/ParallaxBackground/Foreground" index="2" instance=ExtResource("2_ipbdx")]
+position = Vector2(600, 50)
+scale = Vector2(60, 5)
 metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="." index="4"]

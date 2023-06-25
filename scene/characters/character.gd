@@ -16,6 +16,11 @@ func _set_color(p_color: Color) -> void:
 	modulate = p_color
 	color = p_color
 
+func randomize() -> void:
+	size = 0.8 + randf() * .4
+	modulate.v = .5 + randf() * .5
+	speed = 0.6 + randf() * .6
+
 func _process(delta: float) -> void:
 	if moving:
 		position.x += speed * delta

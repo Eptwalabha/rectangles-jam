@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c0dm3th02w36g"]
 
-[ext_resource type="Script" path="res://levels/train.gd" id="1_3vrx6"]
 [ext_resource type="PackedScene" uid="uid://ckp3hw4btpj7n" path="res://scene/cube.tscn" id="1_ppy64"]
+[ext_resource type="Script" path="res://scene/train/train.gd" id="1_y5lnw"]
 
 [sub_resource type="Animation" id="Animation_ctsbr"]
 length = 0.001
@@ -152,7 +152,7 @@ _data = {
 }
 
 [node name="Train" type="Node2D"]
-script = ExtResource("1_3vrx6")
+script = ExtResource("1_y5lnw")
 interactible = true
 
 [node name="Body" parent="." instance=ExtResource("1_ppy64")]

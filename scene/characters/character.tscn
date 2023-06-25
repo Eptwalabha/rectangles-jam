@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://bweimn7xy5ccn"]
 
 [ext_resource type="Script" path="res://scene/characters/character.gd" id="1_eeulc"]
 [ext_resource type="PackedScene" uid="uid://ckp3hw4btpj7n" path="res://scene/cube.tscn" id="1_ibpys"]
@@ -35,8 +35,6 @@ _data = {
 
 [node name="Character" type="Node2D"]
 script = ExtResource("1_eeulc")
-moving = null
-speed = null
 
 [node name="Pivot" type="Node2D" parent="."]
 
