@@ -102,6 +102,33 @@ layer = 3
 [node name="Background" type="ParallaxLayer" parent="Scene/ParallaxBackground" index="0"]
 motion_scale = Vector2(0.9, 1)
 
+[node name="Pub1" parent="Scene/ParallaxBackground/Background" index="0" instance=ExtResource("3_v7lkn")]
+position = Vector2(150, 300)
+scale = Vector2(22, 11)
+color = Color(0.75, 0.75, 0.75, 1)
+
+[node name="pub" parent="Scene/ParallaxBackground/Background/Pub1" index="1" instance=ExtResource("3_v7lkn")]
+scale = Vector2(0.95, 0.9)
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="Pub2" parent="Scene/ParallaxBackground/Background" index="1" instance=ExtResource("3_v7lkn")]
+position = Vector2(550, 300)
+scale = Vector2(22, 11)
+color = Color(0.75, 0.75, 0.75, 1)
+
+[node name="pub" parent="Scene/ParallaxBackground/Background/Pub2" index="1" instance=ExtResource("3_v7lkn")]
+scale = Vector2(0.95, 0.9)
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="Pub3" parent="Scene/ParallaxBackground/Background" index="2" instance=ExtResource("3_v7lkn")]
+position = Vector2(950, 300)
+scale = Vector2(22, 11)
+color = Color(0.75, 0.75, 0.75, 1)
+
+[node name="pub" parent="Scene/ParallaxBackground/Background/Pub3" index="1" instance=ExtResource("3_v7lkn")]
+scale = Vector2(0.95, 0.9)
+color = Color(0.5, 0.5, 0.5, 1)
+
 [node name="Foreground" type="ParallaxLayer" parent="Scene/ParallaxBackground" index="1"]
 
 [node name="Floor" parent="Scene/ParallaxBackground/Foreground" index="0" instance=ExtResource("3_v7lkn")]

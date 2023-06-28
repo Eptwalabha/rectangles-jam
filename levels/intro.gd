@@ -27,14 +27,14 @@ func _ready() -> void:
 		var npc : NPC = NPC_CHARACTER.instantiate()
 		npc.randomize_character()
 		npc_bucket_1.add_child(npc)
-		npc.global_position.x = 50 + randi() % 1750
-		npc.random_move_from_to(50, 1550)
+		npc.global_position.x = 50 + randi() % 1350
+		npc.random_move_from_to(50, 1400)
 	for i in range(5):
 		var npc : NPC = NPC_CHARACTER.instantiate()
 		npc.randomize_character()
 		npc_bucket_2.add_child(npc)
-		npc.global_position.x = 50 + randi() % 1750
-		npc.random_move_from_to(50, 1550)
+		npc.global_position.x = 50 + randi() % 1350
+		npc.random_move_from_to(50, 1400)
 		
 func fade_in_over() -> void:
 	anim.play("player intro")
