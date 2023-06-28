@@ -165,7 +165,35 @@ limit_bottom = 600
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Scene" index="0"]
 layer = 2
 
-[node name="Back" type="ParallaxLayer" parent="Scene/ParallaxBackground" index="0"]
+[node name="Background" type="ParallaxLayer" parent="Scene/ParallaxBackground" index="0"]
+motion_scale = Vector2(0.8, 1)
+
+[node name="Pub1" parent="Scene/ParallaxBackground/Background" index="0" instance=ExtResource("2_ipbdx")]
+position = Vector2(150, 300)
+scale = Vector2(22, 11)
+color = Color(0.75, 0.75, 0.75, 1)
+
+[node name="pub" parent="Scene/ParallaxBackground/Background/Pub1" index="1" instance=ExtResource("2_ipbdx")]
+scale = Vector2(0.95, 0.9)
+color = Color(0.2175, 0.616875, 0.75, 1)
+
+[node name="Pub2" parent="Scene/ParallaxBackground/Background" index="1" instance=ExtResource("2_ipbdx")]
+position = Vector2(550, 300)
+scale = Vector2(22, 11)
+color = Color(0.75, 0.75, 0.75, 1)
+
+[node name="pub" parent="Scene/ParallaxBackground/Background/Pub2" index="1" instance=ExtResource("2_ipbdx")]
+scale = Vector2(0.95, 0.9)
+color = Color(0.2175, 0.616875, 0.75, 1)
+
+[node name="Pub3" parent="Scene/ParallaxBackground/Background" index="2" instance=ExtResource("2_ipbdx")]
+position = Vector2(950, 300)
+scale = Vector2(22, 11)
+color = Color(0.75, 0.75, 0.75, 1)
+
+[node name="pub" parent="Scene/ParallaxBackground/Background/Pub3" index="1" instance=ExtResource("2_ipbdx")]
+scale = Vector2(0.95, 0.9)
+color = Color(0.2175, 0.616875, 0.75, 1)
 
 [node name="Train" type="ParallaxLayer" parent="Scene/ParallaxBackground" index="1"]
 

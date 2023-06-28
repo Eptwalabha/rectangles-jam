@@ -9,6 +9,13 @@ var NPC_CHARACTER = preload("res://scene/characters/npc.tscn")
 
 @export_file("*.tscn") var next_level : String = ""
 @export var free_camera : bool = false
+@export var current_camera_mode : Level.CAMERA_MODE = CAMERA_MODE.FOLLOW_PLAYER
+
+enum CAMERA_MODE {
+	FOLLOW_PLAYER,
+	STATIC,
+	FREE
+}
 
 var is_level_over : bool = false
 

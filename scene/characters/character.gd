@@ -29,6 +29,9 @@ func vanish() -> void:
 func appear() -> void:
 	anim.play("appear")
 
+func surprised() -> void:
+	anim.play("surprise")
+
 func randomize_character() -> void:
 	randomize_size()
 	modulate.v = .5 + randf() * .5
