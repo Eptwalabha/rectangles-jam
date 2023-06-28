@@ -8,6 +8,7 @@ size = Vector2(22, 83)
 
 [node name="Player" instance=ExtResource("1_iauog")]
 script = ExtResource("2_girx6")
+color = Color(0.206918, 0.596255, 0.725327, 1)
 
 [node name="Area2D" type="Area2D" parent="." index="2"]
 position = Vector2(0, -32)

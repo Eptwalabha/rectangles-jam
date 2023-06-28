@@ -1,31 +1,35 @@
-[gd_scene load_steps=7 format=3 uid="uid://bweimn7xy5ccn"]
+[gd_scene load_steps=8 format=3 uid="uid://bweimn7xy5ccn"]
 
 [ext_resource type="Script" path="res://scene/characters/character.gd" id="1_eeulc"]
 [ext_resource type="PackedScene" uid="uid://ckp3hw4btpj7n" path="res://scene/cube.tscn" id="1_ibpys"]
 
-[sub_resource type="Animation" id="Animation_22mmq"]
-resource_name = "walk"
+[sub_resource type="Animation" id="Animation_edswb"]
+resource_name = "appear"
+length = 0.5
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot:position:x")
+tracks/0/path = NodePath(".:modulate:a")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(),
-"points": PackedFloat32Array(),
-"times": PackedFloat32Array()
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.0552923, -0.25, 0, 0.2, 0.753276, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
 }
-tracks/1/type = "bezier"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot:position:y")
+tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(),
-"points": PackedFloat32Array(),
-"times": PackedFloat32Array()
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"appeared"],
+"method": &"emit_signal"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_tvmlh"]
@@ -57,38 +61,72 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_edswb"]
-resource_name = "appear"
-length = 0.5
+[sub_resource type="Animation" id="Animation_22mmq"]
+resource_name = "walk"
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate:a")
+tracks/0/path = NodePath("Pivot:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.0552923, -0.25, 0, 0.2, 0.753276, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5)
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
 }
-tracks/1/type = "method"
+tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".")
+tracks/1/path = NodePath("Pivot:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"appeared"],
-"method": &"emit_signal"
-}]
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+
+[sub_resource type="Animation" id="Animation_lrq4h"]
+resource_name = "surprise"
+step = 0.05
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.05, -0.604531, -30, -0.135682, 0.00689697, 0.164318, 0.00160694, 0, -0.05, -0.541059, 0.25, 0),
+"times": PackedFloat32Array(0.2, 0.4, 0.6)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0, 0, 2, 0),
+"points": PackedFloat32Array(1, 0, 0, 0.0666667, 0, 0.9, -0.0666667, 0, 0.05, 0.182768, 1.1, 0, 0.00392497, 0.05, -0.0105788, 0.998138, -0.05, 0.0476041, 0.2, 0.00528949, 0.90822, -0.05, 0.0875596, 0, 0, 1, -0.05, -0.134095, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.6, 0.7)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dhyq3"]
 _data = {
 "appear": SubResource("Animation_edswb"),
+"surprise": SubResource("Animation_lrq4h"),
 "vanish": SubResource("Animation_tvmlh"),
 "walk": SubResource("Animation_22mmq")
 }

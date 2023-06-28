@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dym57gfpjyuk3"]
+[gd_scene load_steps=4 format=3 uid="uid://dym57gfpjyuk3"]
 
 [ext_resource type="PackedScene" uid="uid://6jk4mjlkjis2" path="res://levels/Level.tscn" id="1_f6cu7"]
 [ext_resource type="Script" path="res://levels/down_to_station.gd" id="2_dw04q"]
+[ext_resource type="PackedScene" uid="uid://ckp3hw4btpj7n" path="res://scene/cube.tscn" id="3_10amm"]
 
 [node name="down_to_station" instance=ExtResource("1_f6cu7")]
 script = ExtResource("2_dw04q")
+
+[node name="Cube2" parent="Bg" index="1" instance=ExtResource("3_10amm")]
+position = Vector2(300, 610)
+scale = Vector2(62, 62)
+color = Color(0.776471, 0.776471, 0.776471, 1)
+
+[node name="Cube" parent="Bg" index="2" instance=ExtResource("3_10amm")]
+position = Vector2(336, 448)
+rotation = -0.785398
+scale = Vector2(22.0425, 60)

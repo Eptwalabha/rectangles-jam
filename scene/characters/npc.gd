@@ -43,13 +43,18 @@ func random_move_from_to(p_from: int, p_to: int) -> void:
 	from = p_from
 	to = p_to
 	modulate.a = 1.0
-	set_target(_random_target())
-	wait_random()
+	set_target(_random_small_target())
+#	wait_random()
 
 func _random_target() -> int:
 	return from + randi() % (to - from)
 
+func _random_small_target() -> int:
+	var amount : int = randi() % 100 + 50
+	var sign : int = 1 if randf() < .5 else -1
+	return mini(to, maxi(from, position.x + amount * sign))
+
 func _on_idle_timeout() -> void:
 	if random_move:
-		set_target(_random_target())
+		set_target(_random_small_target())
 

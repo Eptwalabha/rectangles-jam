@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dauely3wjuy5r"]
+
+[ext_resource type="PackedScene" uid="uid://bweimn7xy5ccn" path="res://scene/characters/character.tscn" id="1_df5fc"]
+[ext_resource type="Script" path="res://scene/characters/victim.gd" id="2_hqhiq"]
+[ext_resource type="PackedScene" uid="uid://ckp3hw4btpj7n" path="res://scene/cube.tscn" id="2_ikn7g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86vbf"]
+size = Vector2(22, 83)
+
+[node name="Victim" instance=ExtResource("1_df5fc")]
+script = ExtResource("2_hqhiq")
+color = Color(0.8, 0.564706, 0.796078, 1)
+
+[node name="Body" parent="Pivot" index="0"]
+modulate = Color(0.8, 0.564706, 0.796078, 1)
+color = Color(0.701961, 0.431373, 0.701961, 1)
+
+[node name="Head" parent="Pivot" index="1"]
+modulate = Color(0.8, 0.564706, 0.796078, 1)
+color = Color(1, 0.658824, 1, 1)
+
+[node name="Handbag" parent="Pivot" index="2" instance=ExtResource("2_ikn7g")]
+position = Vector2(-11, -41)
+scale = Vector2(1.65992, 1.09542)
+color = Color(1, 1, 0.2, 1)
+
+[node name="Area2D" type="Area2D" parent="." index="2"]
+position = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, -9.5)
+shape = SubResource("RectangleShape2D_86vbf")

@@ -10,7 +10,6 @@ extends Level
 @onready var npc_2: Node2D = $Scene/ParallaxBackground/Foreground/npc2
 @onready var spawner: Timer = $Spawner
 
-var NPC_CHARACTER = preload("res://scene/characters/npc.tscn")
 
 const LEFT : int = 50
 const RIGHT : int = 1150
@@ -46,15 +45,15 @@ func init_level() -> void:
 		var npc : NPC = NPC_CHARACTER.instantiate()
 		npc.randomize_character()
 		npc_1.add_child(npc)
-		npc.random_move_from_to(LEFT, RIGHT)
 		npc.target_reached.connect(func (): _respawn_npc(npc))
 		npc.global_position.x = LEFT + randi() % (RIGHT - LEFT)
-	for i in range(10):
+		npc.random_move_from_to(LEFT, RIGHT)
+	for i in range(5):
 		var npc : NPC = NPC_CHARACTER.instantiate()
 		npc.randomize_character()
 		npc_2.add_child(npc)
-		npc.random_move_from_to(LEFT, RIGHT)
 		npc.global_position.x = LEFT + randi() % (RIGHT - LEFT)
+		npc.random_move_from_to(LEFT, RIGHT)
 
 func fade_in_over() -> void:
 	anim.play("player intro")
@@ -88,7 +87,7 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 func _respawn_npc(npc: NPC) -> void:
 	npc.vanish()
 	npc.vanished.connect(func ():
-		npc.position.x = -50
+		npc.position.x = -50 if randf() < .5 else RIGHT + 150
 		npc.modulate.a = 1.0
 		npc.randomize_size()
 		npc.randomize_speed(180)
@@ -98,6 +97,7 @@ func _respawn_npc(npc: NPC) -> void:
 func _on_spawner_timeout() -> void:
 	var npc : NPC = NPC_CHARACTER.instantiate()
 	npc.randomize_character()
+	npc.color = Color.RED
 	npc_0.add_child(npc)
 	npc.position.x = _door_position((current_door + randi() % 2 + 1) % 3) + randi() % 70 - 35
 	npc.appear()

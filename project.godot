@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Rectangles-jam"
-run/main_scene="res://levels/level_enter_train.tscn"
+run/main_scene="res://levels/intro.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+UiEventBus="*res://scene/core/ui_event_bus.gd"
 
 [display]
 

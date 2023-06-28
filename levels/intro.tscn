@@ -1,0 +1,175 @@
+[gd_scene load_steps=12 format=3 uid="uid://bsc1l3yrhcynq"]
+
+[ext_resource type="PackedScene" uid="uid://6jk4mjlkjis2" path="res://levels/Level.tscn" id="1_a2rsy"]
+[ext_resource type="Script" path="res://levels/intro.gd" id="2_46an5"]
+[ext_resource type="PackedScene" uid="uid://d36fvxaod3hll" path="res://scene/characters/player.tscn" id="3_b8fyx"]
+[ext_resource type="PackedScene" uid="uid://ckp3hw4btpj7n" path="res://scene/cube.tscn" id="3_v7lkn"]
+[ext_resource type="PackedScene" uid="uid://dauely3wjuy5r" path="res://scene/characters/victim.tscn" id="4_44b0m"]
+[ext_resource type="PackedScene" uid="uid://cmo2u4mbrku2q" path="res://scene/core/door.tscn" id="5_lhj10"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4kbx"]
+size = Vector2(50, 50)
+
+[sub_resource type="Animation" id="Animation_w7v0x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scene/ParallaxBackground/Foreground/Player:moving")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_ynqf2"]
+resource_name = "intro"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:free_camera")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_wbekr"]
+resource_name = "player intro"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scene/ParallaxBackground/Foreground/Player:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-150, -0.25, 0, 0.25, 0, 100, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scene/ParallaxBackground/Foreground/Player:moving")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_86kc1"]
+_data = {
+"RESET": SubResource("Animation_w7v0x"),
+"intro": SubResource("Animation_ynqf2"),
+"player intro": SubResource("Animation_wbekr")
+}
+
+[node name="Intro" instance=ExtResource("1_a2rsy")]
+script = ExtResource("2_46an5")
+next_level = "res://levels/level_enter_train.tscn"
+
+[node name="Camera" parent="." index="0"]
+anchor_mode = 1
+limit_left = 0
+limit_top = 0
+limit_right = 1500
+limit_bottom = 600
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Scene" index="0"]
+layer = 3
+
+[node name="Background" type="ParallaxLayer" parent="Scene/ParallaxBackground" index="0"]
+motion_scale = Vector2(0.9, 1)
+
+[node name="Foreground" type="ParallaxLayer" parent="Scene/ParallaxBackground" index="1"]
+
+[node name="Floor" parent="Scene/ParallaxBackground/Foreground" index="0" instance=ExtResource("3_v7lkn")]
+position = Vector2(700, 450)
+scale = Vector2(160, 10)
+color = Color(0.75, 0.75, 0.75, 1)
+
+[node name="Floor2" parent="Scene/ParallaxBackground/Foreground" index="1" instance=ExtResource("3_v7lkn")]
+position = Vector2(700, 150)
+scale = Vector2(160, 10)
+color = Color(0.75, 0.75, 0.75, 1)
+
+[node name="Doors" type="Node2D" parent="Scene/ParallaxBackground/Foreground" index="2"]
+
+[node name="Door1" parent="Scene/ParallaxBackground/Foreground/Doors" index="0" instance=ExtResource("5_lhj10")]
+position = Vector2(1400, 400)
+
+[node name="npc" type="Node2D" parent="Scene/ParallaxBackground/Foreground" index="3"]
+position = Vector2(0, 400)
+
+[node name="Player" parent="Scene/ParallaxBackground/Foreground" index="4" instance=ExtResource("3_b8fyx")]
+position = Vector2(-150, 400)
+color = Color(0.027451, 1, 0.2, 1)
+
+[node name="Victim" parent="Scene/ParallaxBackground/Foreground" index="5" instance=ExtResource("4_44b0m")]
+position = Vector2(900, 400)
+
+[node name="CutScene1" type="Area2D" parent="Scene/ParallaxBackground/Foreground" index="6"]
+position = Vector2(500, 375)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/ParallaxBackground/Foreground/CutScene1" index="0"]
+shape = SubResource("RectangleShape2D_b4kbx")
+
+[node name="CutScene2" type="Area2D" parent="Scene/ParallaxBackground/Foreground" index="7"]
+position = Vector2(717, 380)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/ParallaxBackground/Foreground/CutScene2" index="0"]
+shape = SubResource("RectangleShape2D_b4kbx")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Scene/ParallaxBackground" index="2"]
+motion_scale = Vector2(1.1, 1)
+
+[node name="npc2" type="Node2D" parent="Scene/ParallaxBackground/ParallaxLayer2" index="0"]
+position = Vector2(0, 400)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Scene/ParallaxBackground" index="3"]
+motion_scale = Vector2(0, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Ground" parent="Scene/ParallaxBackground/ParallaxLayer" index="0" instance=ExtResource("3_v7lkn")]
+position = Vector2(300, 550)
+scale = Vector2(62, 12)
+metadata/_edit_lock_ = true
+
+[node name="Ceiling" parent="Scene/ParallaxBackground/ParallaxLayer" index="1" instance=ExtResource("3_v7lkn")]
+position = Vector2(300, 50)
+scale = Vector2(62, 12)
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_86kc1")
+}
+
+[connection signal="player_entered" from="Scene/ParallaxBackground/Foreground/Doors/Door1" to="." method="_on_door_1_player_entered"]
+[connection signal="player_exited" from="Scene/ParallaxBackground/Foreground/Doors/Door1" to="." method="_on_door_1_player_exited"]
+[connection signal="area_entered" from="Scene/ParallaxBackground/Foreground/CutScene1" to="." method="_on_cut_scene_1_area_entered" flags=6]
+[connection signal="area_entered" from="Scene/ParallaxBackground/Foreground/CutScene2" to="." method="_on_cut_scene_2_area_entered"]
