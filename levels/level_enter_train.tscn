@@ -140,7 +140,7 @@ _data = {
 
 [node name="LevelEnterTrain" instance=ExtResource("1_er2pw")]
 script = ExtResource("2_84nus")
-next_level = "res://levels/level_enter_train.tscn"
+next_level = "res://levels/level_last_scene.tscn"
 
 [node name="Camera" parent="." index="0"]
 anchor_mode = 1
@@ -215,7 +215,6 @@ position = Vector2(0, 420)
 visible = false
 modulate = Color(0.027451, 1, 0.2, 1)
 position = Vector2(-250, 420)
-color = Color(0.027451, 1, 0.2, 1)
 moving = true
 
 [node name="Foreground" type="ParallaxLayer" parent="Scene/ParallaxBackground" index="3"]
