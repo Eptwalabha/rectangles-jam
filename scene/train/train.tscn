@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0dm3th02w36g"]
+[gd_scene load_steps=8 format=3 uid="uid://c0dm3th02w36g"]
 
 [ext_resource type="PackedScene" uid="uid://ckp3hw4btpj7n" path="res://scene/cube.tscn" id="1_ppy64"]
 [ext_resource type="Script" path="res://scene/train/train.gd" id="1_y5lnw"]
+[ext_resource type="PackedScene" uid="uid://dauely3wjuy5r" path="res://scene/characters/victim.tscn" id="3_uynhq"]
 
 [sub_resource type="Animation" id="Animation_ctsbr"]
 length = 0.001
@@ -133,9 +134,17 @@ scale = Vector2(1e-05, 12)
 position = Vector2(-175, -75)
 scale = Vector2(20, 9)
 
+[node name="Victim" parent="." instance=ExtResource("3_uynhq")]
+position = Vector2(-104, -8)
+
 [node name="Window2" parent="." instance=ExtResource("1_ppy64")]
 position = Vector2(175, -75)
 scale = Vector2(20, 9)
+
+[node name="Body2" parent="." instance=ExtResource("1_ppy64")]
+position = Vector2(0, -13)
+scale = Vector2(100, 4)
+color = Color(0.254902, 0.396078, 0.67451, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
