@@ -17,6 +17,7 @@ ignore_rotation = false
 [node name="Background" parent="Bg" instance=ExtResource("3_y1ore")]
 position = Vector2(300, 300)
 scale = Vector2(63, 63)
+color = Color(0.912289, 0.912289, 0.912289, 1)
 
 [node name="Scene" type="CanvasLayer" parent="."]
 layer = 2

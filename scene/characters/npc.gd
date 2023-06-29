@@ -1,3 +1,4 @@
+@tool
 class_name NPC
 extends Character
 
@@ -51,8 +52,8 @@ func _random_target() -> int:
 
 func _random_small_target() -> int:
 	var amount : int = randi() % 100 + 50
-	var sign : int = 1 if randf() < .5 else -1
-	return mini(to, maxi(from, position.x + amount * sign))
+	var direction : int = int(1 if randf() < .5 else -1)
+	return mini(to, maxi(from, position.x + amount * direction))
 
 func _on_idle_timeout() -> void:
 	if random_move:

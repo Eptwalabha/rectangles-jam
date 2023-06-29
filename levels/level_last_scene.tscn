@@ -1,0 +1,752 @@
+[gd_scene load_steps=13 format=3 uid="uid://b07xkgm1gm4be"]
+
+[ext_resource type="PackedScene" uid="uid://6jk4mjlkjis2" path="res://levels/Level.tscn" id="1_n2i40"]
+[ext_resource type="PackedScene" uid="uid://d36fvxaod3hll" path="res://scene/characters/player.tscn" id="2_0c47q"]
+[ext_resource type="Script" path="res://levels/level_last_scene.gd" id="2_m3t0o"]
+[ext_resource type="PackedScene" uid="uid://ckp3hw4btpj7n" path="res://scene/cube.tscn" id="3_5k0f2"]
+[ext_resource type="PackedScene" uid="uid://c6h4v8xup5uv1" path="res://scene/characters/npc.tscn" id="5_55uy7"]
+[ext_resource type="PackedScene" uid="uid://dauely3wjuy5r" path="res://scene/characters/victim.tscn" id="6_nxjjv"]
+[ext_resource type="PackedScene" uid="uid://c0dm3th02w36g" path="res://scene/train/train.tscn" id="7_cpd5y"]
+
+[sub_resource type="Animation" id="Animation_v2gia"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scene/doors/DoorL:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(220, 270)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scene/doors/DoorR:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(390, 270)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Scene/exitTrain/actors/Victim:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Scene/exitTrain/actors/Player:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(300, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Scene/steal_handbag/actors/Victim:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(400, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Scene/steal_handbag/actors/Player:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Scene/steal_handbag/shot/scale/PlayerPrison:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0445868]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Scene/steal_handbag/shot/scale/Arm:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-379, 337)]
+}
+
+[sub_resource type="Animation" id="Animation_2nbbr"]
+resource_name = "hit doors"
+length = 5.0
+step = 0.01
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scene/doors/Player:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scene/doors/Player:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(450, -0.25, 0, 0.25, 0, 450, -0.313484, 1.53424, 0.0291466, 1.53415, 390, -0.100853, 9.65939, 0.0791465, 0.227631, 450, -0.0508535, -0.823792, 0.149146, 1.53415, 386, -0.190853, 4.22763, 0.25, 0),
+"times": PackedFloat32Array(0, 1.4, 1.5, 1.6, 1.87)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Scene/doors/Player:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.2, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -1.57362, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.4, 1.5, 1.6, 1.87)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Scene/doors/Player:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0, 5, -0.15, -1.71075, 0.25, 0),
+"times": PackedFloat32Array(0, 1.4)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Scene/doors/Player:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 3, 3, 2),
+"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0, 5, -0.0288996, -0.00130796, 0.0288996, 0.00130796, 4.5, -0.0311005, -0.020247, 0.0311005, 0.020247, 5, -0.0411005, -0.0213685, 0, 0),
+"times": PackedFloat32Array(0, 1.4, 1.5, 1.6)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Scene/doors/DoorL:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.3, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(123, 270), Vector2(220, 270)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Scene/doors/DoorR:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.3, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(484, 270), Vector2(390, 270)]
+}
+
+[sub_resource type="Animation" id="Animation_5b5hm"]
+resource_name = "exit train"
+length = 11.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scene/exitTrain/actors/Train:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-800, -0.25, 0, 0.25, 0, 300, -0.25, 0, 0.25, 0, 300, -0.25, 0, 0.25, 0, 1500, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.5, 8, 10.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scene/exitTrain/actors/Train:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Scene/exitTrain/actors/Train")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3.4, 7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"open_doors"
+}, {
+"args": [],
+"method": &"close_doors"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Scene/exitTrain/actors/Victim")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"appear"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Scene/exitTrain/actors/Player")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(6.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"appear"
+}]
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Scene/exitTrain/actors/Victim:position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(300, -0.25, 0, 0.25, 0, 500, -0.25, 0, 0.25, 0, 500, -0.25, 0, 0.25, 0, 450, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(4.5, 6.6, 8.5, 10)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Scene/exitTrain/actors/Victim:position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Scene/exitTrain/actors/Victim:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(6.8, 6.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(-1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Scene/exitTrain/actors/Player:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(7.7, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(300, 0), Vector2(400, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_a1xc0"]
+resource_name = "steal handbag"
+length = 11.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.9, 7.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 3000), Vector2(0, 3200), Vector2(0, 2000)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scene/steal_handbag/actors/Victim")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(9.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"surprised"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Scene/steal_handbag/actors/Victim:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(9.7, 10.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(400, 0), Vector2(-50, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Scene/steal_handbag/actors/Player:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(8.6, 9.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(350, 0), Vector2(-50, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Scene/steal_handbag/actors/Player/Handbag:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(7.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Scene/steal_handbag/actors/Player:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(8.5, 8.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1, 1), Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Scene/steal_handbag/actors/Victim/Pivot/Handbag:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(7.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Scene/steal_handbag/shot/scale/PlayerPrison:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.8, 3.4, 3.9, 4.4, 4.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Scene/steal_handbag/shot/scale/Victim:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.8, 3.4, 3.9, 4.4, 4.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Scene/steal_handbag/shot/scale/PlayerPrison:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(4.4, 4.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0698132]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Scene/steal_handbag/shot/scale/Victim/Pivot/Handbag:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(5.7, 6.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Scene/steal_handbag/shot/scale/Arm:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(5.3, 6.1, 6.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-693, -739), Vector2(-386, -568), Vector2(-693, -739)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Scene/steal_handbag/shot/scale/Arm/Handbag:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(5.7, 6.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u4eb0"]
+_data = {
+"RESET": SubResource("Animation_v2gia"),
+"exit train": SubResource("Animation_5b5hm"),
+"hit doors": SubResource("Animation_2nbbr"),
+"steal handbag": SubResource("Animation_a1xc0")
+}
+
+[node name="LastScene" instance=ExtResource("1_n2i40")]
+script = ExtResource("2_m3t0o")
+scene = 0
+next_level = "res://levels/level_badge.tscn"
+
+[node name="Camera" parent="." index="0"]
+position = Vector2(0, 3000)
+
+[node name="doors" type="Node2D" parent="Scene" index="0"]
+position = Vector2(1487, 0)
+
+[node name="Player" parent="Scene/doors" index="0" instance=ExtResource("2_0c47q")]
+position = Vector2(299, 450)
+scale = Vector2(2, 2)
+
+[node name="Handbag" parent="Scene/doors/Player" index="3" instance=ExtResource("3_5k0f2")]
+position = Vector2(-11, -41)
+scale = Vector2(1.65992, 1.09542)
+color = Color(0.2175, 0.616875, 0.75, 1)
+
+[node name="DoorL" type="Node2D" parent="Scene/doors" index="1"]
+position = Vector2(220, 270)
+metadata/_edit_group_ = true
+
+[node name="Glass" parent="Scene/doors/DoorL" index="0" instance=ExtResource("3_5k0f2")]
+scale = Vector2(15, 50)
+color = Color(0.215686, 0.615686, 0.74902, 0.513726)
+
+[node name="Border" parent="Scene/doors/DoorL" index="1" instance=ExtResource("3_5k0f2")]
+position = Vector2(66, 0)
+scale = Vector2(3, 50)
+color = Color(0.75, 0.75, 0.75, 1)
+
+[node name="DoorR" type="Node2D" parent="Scene/doors" index="2"]
+position = Vector2(390, 270)
+metadata/_edit_group_ = true
+
+[node name="Glass" parent="Scene/doors/DoorR" index="0" instance=ExtResource("3_5k0f2")]
+scale = Vector2(15, 50)
+color = Color(0.215686, 0.615686, 0.74902, 0.513726)
+
+[node name="Border" parent="Scene/doors/DoorR" index="1" instance=ExtResource("3_5k0f2")]
+position = Vector2(-75, 0)
+scale = Vector2(3, 50)
+color = Color(0.75, 0.75, 0.75, 1)
+
+[node name="Badger1" parent="Scene/doors" index="3" instance=ExtResource("3_5k0f2")]
+position = Vector2(93, 390)
+scale = Vector2(15, 20)
+color = Color(0.415686, 0.415686, 0.415686, 1)
+
+[node name="Cube2" parent="Scene/doors/Badger1" index="1" instance=ExtResource("3_5k0f2")]
+position = Vector2(1.06667, -2.1)
+scale = Vector2(0.5, 0.2)
+color = Color(0.929412, 0.909804, 0, 1)
+
+[node name="Cube4" parent="Scene/doors/Badger1" index="2" instance=ExtResource("3_5k0f2")]
+position = Vector2(1.06667, -0.649994)
+scale = Vector2(0.5, 0.05)
+color = Color(0, 0, 0, 1)
+
+[node name="Badger2" parent="Scene/doors" index="4" instance=ExtResource("3_5k0f2")]
+position = Vector2(505, 390)
+scale = Vector2(15, 20)
+color = Color(0.415686, 0.415686, 0.415686, 1)
+
+[node name="Cube2" parent="Scene/doors/Badger2" index="1" instance=ExtResource("3_5k0f2")]
+position = Vector2(1.06667, -2.1)
+scale = Vector2(0.5, 0.2)
+color = Color(0.929412, 0.909804, 0, 1)
+
+[node name="Cube4" parent="Scene/doors/Badger2" index="2" instance=ExtResource("3_5k0f2")]
+position = Vector2(1.06667, -0.649994)
+scale = Vector2(0.5, 0.05)
+color = Color(0, 0, 0, 1)
+
+[node name="prison" type="Node2D" parent="Scene" index="1"]
+position = Vector2(2766, 0)
+
+[node name="PlayerPrison" parent="Scene/prison" index="0" instance=ExtResource("5_55uy7")]
+position = Vector2(355, 449)
+scale = Vector2(4, 4)
+color = Color(0.027451, 1, 0.2, 1)
+
+[node name="Bars" type="Node2D" parent="Scene/prison" index="1"]
+
+[node name="Cube" parent="Scene/prison/Bars" index="0" instance=ExtResource("3_5k0f2")]
+position = Vector2(0, 300)
+scale = Vector2(2, 60)
+color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="Cube2" parent="Scene/prison/Bars" index="1" instance=ExtResource("3_5k0f2")]
+position = Vector2(50, 300)
+scale = Vector2(2, 60)
+color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="Cube3" parent="Scene/prison/Bars" index="2" instance=ExtResource("3_5k0f2")]
+position = Vector2(100, 300)
+scale = Vector2(2, 60)
+color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="Cube4" parent="Scene/prison/Bars" index="3" instance=ExtResource("3_5k0f2")]
+position = Vector2(150, 300)
+scale = Vector2(2, 60)
+color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="Cube5" parent="Scene/prison/Bars" index="4" instance=ExtResource("3_5k0f2")]
+position = Vector2(200, 300)
+scale = Vector2(2, 60)
+color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="Cube6" parent="Scene/prison/Bars" index="5" instance=ExtResource("3_5k0f2")]
+position = Vector2(250, 300)
+scale = Vector2(2, 60)
+color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="Cube7" parent="Scene/prison/Bars" index="6" instance=ExtResource("3_5k0f2")]
+position = Vector2(300, 300)
+scale = Vector2(2, 60)
+color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="Cube8" parent="Scene/prison/Bars" index="7" instance=ExtResource("3_5k0f2")]
+position = Vector2(350, 300)
+scale = Vector2(2, 60)
+color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="Cube9" parent="Scene/prison/Bars" index="8" instance=ExtResource("3_5k0f2")]
+position = Vector2(400, 300)
+scale = Vector2(2, 60)
+color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="Cube10" parent="Scene/prison/Bars" index="9" instance=ExtResource("3_5k0f2")]
+position = Vector2(450, 300)
+scale = Vector2(2, 60)
+color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="Cube11" parent="Scene/prison/Bars" index="10" instance=ExtResource("3_5k0f2")]
+position = Vector2(500, 300)
+scale = Vector2(2, 60)
+color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="Cube12" parent="Scene/prison/Bars" index="11" instance=ExtResource("3_5k0f2")]
+position = Vector2(550, 300)
+scale = Vector2(2, 60)
+color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="Cube13" parent="Scene/prison/Bars" index="12" instance=ExtResource("3_5k0f2")]
+position = Vector2(600, 300)
+scale = Vector2(2, 60)
+color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="Cube14" parent="Scene/prison/Bars" index="13" instance=ExtResource("3_5k0f2")]
+position = Vector2(650, 300)
+scale = Vector2(2, 60)
+color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="Cube15" parent="Scene/prison/Bars" index="14" instance=ExtResource("3_5k0f2")]
+position = Vector2(700, 300)
+scale = Vector2(2, 60)
+color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="Cube16" parent="Scene/prison/Bars" index="15" instance=ExtResource("3_5k0f2")]
+position = Vector2(750, 300)
+scale = Vector2(2, 60)
+color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="exitTrain" type="Node2D" parent="Scene" index="2"]
+position = Vector2(-4, 1251)
+
+[node name="actors" type="Node2D" parent="Scene/exitTrain" index="0"]
+position = Vector2(4, 423)
+
+[node name="Train" parent="Scene/exitTrain/actors" index="0" instance=ExtResource("7_cpd5y")]
+position = Vector2(-800, 7)
+
+[node name="Victim" parent="Scene/exitTrain/actors/Train" index="5"]
+visible = false
+
+[node name="Body2" parent="Scene/exitTrain/actors/Train" index="7"]
+visible = false
+
+[node name="Victim" parent="Scene/exitTrain/actors" index="1" instance=ExtResource("6_nxjjv")]
+visible = false
+position = Vector2(300, 0)
+
+[node name="Player" parent="Scene/exitTrain/actors" index="2" instance=ExtResource("5_55uy7")]
+visible = false
+position = Vector2(300, 0)
+color = Color(0.027451, 1, 0.2, 1)
+
+[node name="Floor3" parent="Scene/exitTrain" index="1" instance=ExtResource("3_5k0f2")]
+position = Vector2(600, 490)
+scale = Vector2(160, 14)
+color = Color(0.75, 0.75, 0.75, 1)
+
+[node name="Floor4" parent="Scene/exitTrain" index="2" instance=ExtResource("3_5k0f2")]
+position = Vector2(600, 110)
+scale = Vector2(160, 14)
+color = Color(0.75, 0.75, 0.75, 1)
+
+[node name="steal_handbag" type="Node2D" parent="Scene" index="3"]
+position = Vector2(0, 2000)
+
+[node name="shot" type="Node2D" parent="Scene/steal_handbag" index="0"]
+position = Vector2(0, 1000)
+
+[node name="scale" type="Node2D" parent="Scene/steal_handbag/shot" index="0"]
+position = Vector2(300, 987)
+scale = Vector2(1, 1)
+
+[node name="PlayerPrison" parent="Scene/steal_handbag/shot/scale" index="0" instance=ExtResource("5_55uy7")]
+rotation = 0.0445868
+scale = Vector2(10, 10)
+color = Color(0.027451, 1, 0.2, 1)
+
+[node name="Victim" parent="Scene/steal_handbag/shot/scale" index="1" instance=ExtResource("6_nxjjv")]
+visible = false
+scale = Vector2(10, 10)
+
+[node name="Arm" type="Node2D" parent="Scene/steal_handbag/shot/scale" index="2"]
+position = Vector2(-379, 337)
+scale = Vector2(1, 1)
+
+[node name="Handbag" parent="Scene/steal_handbag/shot/scale/Arm" index="0" instance=ExtResource("3_5k0f2")]
+visible = false
+position = Vector2(259, 154)
+scale = Vector2(16.5992, 10.9542)
+color = Color(0.215427, 0.615534, 0.748898, 1)
+
+[node name="Arm" parent="Scene/steal_handbag/shot/scale/Arm" index="1" instance=ExtResource("3_5k0f2")]
+rotation = 0.631638
+scale = Vector2(49.9999, 8)
+color = Color(0.027451, 1, 0.2, 1)
+
+[node name="actors" type="Node2D" parent="Scene/steal_handbag" index="1"]
+position = Vector2(4, 423)
+
+[node name="Victim" parent="Scene/steal_handbag/actors" index="0" instance=ExtResource("6_nxjjv")]
+position = Vector2(400, 0)
+scale = Vector2(-1, 1)
+
+[node name="Player" parent="Scene/steal_handbag/actors" index="1" instance=ExtResource("5_55uy7")]
+position = Vector2(350, 0)
+scale = Vector2(-1, 1)
+color = Color(0.027451, 1, 0.2, 1)
+
+[node name="Handbag" parent="Scene/steal_handbag/actors/Player" index="3" instance=ExtResource("3_5k0f2")]
+visible = false
+position = Vector2(-11, -41)
+scale = Vector2(1.65992, 1.09542)
+color = Color(0.2175, 0.616875, 0.75, 1)
+
+[node name="Floor3" parent="Scene/steal_handbag" index="2" instance=ExtResource("3_5k0f2")]
+position = Vector2(600, 490)
+scale = Vector2(160, 14)
+color = Color(0.75, 0.75, 0.75, 1)
+
+[node name="Floor4" parent="Scene/steal_handbag" index="3" instance=ExtResource("3_5k0f2")]
+position = Vector2(600, 110)
+scale = Vector2(160, 14)
+color = Color(0.75, 0.75, 0.75, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+"": SubResource("AnimationLibrary_u4eb0")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+
+[editable path="Scene/exitTrain/actors/Train"]
+[editable path="Scene/steal_handbag/shot/scale/Victim"]
+[editable path="Scene/steal_handbag/actors/Victim"]
