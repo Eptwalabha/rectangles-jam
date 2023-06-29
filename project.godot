@@ -14,6 +14,7 @@ config/name="Rectangles-jam"
 config/tags=PackedStringArray("itch_jam")
 run/main_scene="res://levels/level_badge.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
