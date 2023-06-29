@@ -10,10 +10,6 @@ extends Level
 @onready var npc_bucket_1: Node2D = $Scene/ParallaxBackground/Foreground/npc
 @onready var npc_bucket_2: Node2D = $Scene/ParallaxBackground/Background2/npc0
 
-var intro_played: bool = false
-var on_door : bool = false
-var has_reached_end_of_level : bool = false
-
 func _ready() -> void:
 	super._ready()
 	for i in range(10):
@@ -39,14 +35,8 @@ func _process(_delta: float) -> void:
 	if current_camera_mode == CAMERA_MODE.FOLLOW_PLAYER:
 		camera.position.x = player.position.x
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("action") and on_door and not has_reached_end_of_level:
-		has_reached_end_of_level = true
-		player.vanished.connect(func (): go_to_next_level())
-		player.vanish()
-
 func _on_cut_scene_1_area_entered(area: Area2D) -> void:
-	if not intro_played and area.owner is Player:
+	if area.owner is Player:
 		cut_scene_1.queue_free()
 		var t : Tween = get_tree().create_tween()
 		current_camera_mode = CAMERA_MODE.FREE
@@ -63,12 +53,9 @@ func _on_cut_scene_1_area_entered(area: Area2D) -> void:
 func _on_cut_scene_2_area_entered(area: Area2D) -> void:
 	if area.owner is Player:
 		cut_scene_2.queue_free()
-		anim.play("victim escape")
+		anim.play("victim escapes")
 
 func _on_door_1_player_entered() -> void:
-	UiEventBus.display_space()
-	on_door = true
-
-func _on_door_1_player_exited() -> void:
-	UiEventBus.hide_space()
-	on_door = false
+	player.moving = false
+	player.vanished.connect(func (): go_to_next_level())
+	player.vanish()

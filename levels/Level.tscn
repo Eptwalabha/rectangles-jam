@@ -21,6 +21,19 @@ scale = Vector2(63, 63)
 layer = 2
 follow_viewport_enabled = true
 
+[node name="WhiteBands" type="CanvasLayer" parent="."]
+layer = 19
+
+[node name="Ground" parent="WhiteBands" instance=ExtResource("3_y1ore")]
+position = Vector2(300, 550)
+scale = Vector2(62, 12)
+metadata/_edit_lock_ = true
+
+[node name="Ceiling" parent="WhiteBands" instance=ExtResource("3_y1ore")]
+position = Vector2(300, 50)
+scale = Vector2(62, 12)
+metadata/_edit_lock_ = true
+
 [node name="Fade" parent="." instance=ExtResource("2_fcgqh")]
 visible = false
 follow_viewport_enabled = false

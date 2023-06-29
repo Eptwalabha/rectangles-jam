@@ -98,7 +98,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_3a5mp"]
-resource_name = "victim escape"
+resource_name = "victim escapes"
 length = 2.5
 tracks/0/type = "bezier"
 tracks/0/imported = false
@@ -130,14 +130,13 @@ tracks/1/keys = {
 _data = {
 "RESET": SubResource("Animation_w7v0x"),
 "player intro": SubResource("Animation_wbekr"),
-"victim escape": SubResource("Animation_3a5mp")
+"victim escapes": SubResource("Animation_3a5mp")
 }
 
 [node name="Intro" instance=ExtResource("1_a2rsy")]
 script = ExtResource("2_46an5")
-next_level = "res://levels/level_enter_train.tscn"
+next_level = "res://levels/undergroud_maze.tscn"
 free_camera = true
-current_camera_mode = 2
 
 [node name="Camera" parent="." index="0"]
 anchor_mode = 1
@@ -195,7 +194,7 @@ color = Color(0.75, 0.75, 0.75, 1)
 [node name="Floor2" parent="Scene/ParallaxBackground/Foreground" index="1" instance=ExtResource("3_v7lkn")]
 position = Vector2(700, 150)
 scale = Vector2(160, 10)
-color = Color(0.75, 0.75, 0.75, 1)
+color = Color(0.74902, 0.74902, 0.74902, 1)
 
 [node name="Doors" type="Node2D" parent="Scene/ParallaxBackground/Foreground" index="2"]
 
@@ -247,6 +246,5 @@ libraries = {
 }
 
 [connection signal="player_entered" from="Scene/ParallaxBackground/Foreground/Doors/Door1" to="." method="_on_door_1_player_entered"]
-[connection signal="player_exited" from="Scene/ParallaxBackground/Foreground/Doors/Door1" to="." method="_on_door_1_player_exited"]
 [connection signal="area_entered" from="Scene/ParallaxBackground/Foreground/CutScene1" to="." method="_on_cut_scene_1_area_entered" flags=6]
 [connection signal="area_entered" from="Scene/ParallaxBackground/Foreground/CutScene2" to="." method="_on_cut_scene_2_area_entered"]

@@ -1,0 +1,262 @@
+[gd_scene load_steps=10 format=3 uid="uid://dmihh6iv51vgh"]
+
+[ext_resource type="PackedScene" uid="uid://6jk4mjlkjis2" path="res://levels/Level.tscn" id="1_3pxc3"]
+[ext_resource type="Script" path="res://levels/undergroud_maze.gd" id="2_7is1t"]
+[ext_resource type="PackedScene" uid="uid://cmo2u4mbrku2q" path="res://scene/core/door.tscn" id="3_4cyfr"]
+[ext_resource type="PackedScene" uid="uid://ckp3hw4btpj7n" path="res://scene/cube.tscn" id="3_hnoib"]
+[ext_resource type="PackedScene" uid="uid://d36fvxaod3hll" path="res://scene/characters/player.tscn" id="3_mj5oi"]
+[ext_resource type="PackedScene" uid="uid://dauely3wjuy5r" path="res://scene/characters/victim.tscn" id="4_ncmy3"]
+
+[sub_resource type="Animation" id="Animation_pcfph"]
+resource_name = "player intro"
+length = 6.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scene/ParallaxBackground/ParallaxLayer/Player:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(1, 0),
+"points": PackedFloat32Array(-150, 0, 0, 0, 0, 100, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scene/ParallaxBackground/ParallaxLayer/Player:moving")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:current_camera_mode")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 1),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0, 0, 0, 0, 0, 0),
+"times": PackedFloat32Array(1.2, 2.5, 4.6, 5.6)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 1),
+"points": PackedFloat32Array(50, -0.25, 0, 0.25, 0, 50, -0.25, 0, 0.25, 0, -440, 0, 0, 0, 0),
+"times": PackedFloat32Array(1.2, 4.6, 5.6)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Scene/ParallaxBackground/ParallaxLayer/Victim:position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(900, -0.25, 0, 0.25, 0, 1300, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(3.5, 4.8)
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Scene/ParallaxBackground/ParallaxLayer/Victim")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"appear"
+}]
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Camera:zoom:x")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 1),
+"points": PackedFloat32Array(1.2, -0.25, 0, 0.25, 0, 0.6, 0, 0, 0, 0),
+"times": PackedFloat32Array(4.6, 5.6)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Camera:zoom:y")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 1),
+"points": PackedFloat32Array(1.2, -0.25, 0, 0.25, 0, 0.6, 0, 0, 0, 0),
+"times": PackedFloat32Array(4.6, 5.6)
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Scene/ParallaxBackground/ParallaxLayer/Victim:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_sy7p6"]
+resource_name = "player outro"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scene/ParallaxBackground/ParallaxLayer/Player:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(900, -0.25, 0, 0.25, 0, 1300, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.5, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scene/ParallaxBackground/ParallaxLayer/Player:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"go_to_next_level"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Scene/ParallaxBackground/ParallaxLayer/Player:moving")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ubddk"]
+_data = {
+"player intro": SubResource("Animation_pcfph"),
+"player outro": SubResource("Animation_sy7p6")
+}
+
+[node name="UndergroudMaze" instance=ExtResource("1_3pxc3")]
+script = ExtResource("2_7is1t")
+next_level = "res://levels/level_enter_train.tscn"
+current_camera_mode = 2
+
+[node name="Camera" parent="." index="0"]
+position = Vector2(0, 50)
+zoom = Vector2(1.2, 1.2)
+
+[node name="Background" parent="Bg" index="0"]
+visible = false
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Scene" index="0"]
+layer = 2
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Scene/ParallaxBackground" index="0"]
+
+[node name="Floor1" parent="Scene/ParallaxBackground/ParallaxLayer" index="0" instance=ExtResource("3_hnoib")]
+position = Vector2(500, -50)
+scale = Vector2(120, 8)
+color = Color(0.75, 0.75, 0.75, 1)
+
+[node name="Floor2" parent="Scene/ParallaxBackground/ParallaxLayer" index="1" instance=ExtResource("3_hnoib")]
+position = Vector2(500, 175)
+scale = Vector2(120, 8)
+color = Color(0.75, 0.75, 0.75, 1)
+
+[node name="Floor3" parent="Scene/ParallaxBackground/ParallaxLayer" index="2" instance=ExtResource("3_hnoib")]
+position = Vector2(500, 400)
+scale = Vector2(120, 8)
+color = Color(0.75, 0.75, 0.75, 1)
+
+[node name="Doors" type="Node2D" parent="Scene/ParallaxBackground/ParallaxLayer" index="3"]
+
+[node name="Door1" parent="Scene/ParallaxBackground/ParallaxLayer/Doors" index="0" instance=ExtResource("3_4cyfr")]
+position = Vector2(378, 360)
+
+[node name="Door2" parent="Scene/ParallaxBackground/ParallaxLayer/Doors" index="1" instance=ExtResource("3_4cyfr")]
+position = Vector2(118, 135)
+
+[node name="Door3" parent="Scene/ParallaxBackground/ParallaxLayer/Doors" index="2" instance=ExtResource("3_4cyfr")]
+position = Vector2(384, 135)
+
+[node name="Door4" parent="Scene/ParallaxBackground/ParallaxLayer/Doors" index="3" instance=ExtResource("3_4cyfr")]
+position = Vector2(637, 135)
+
+[node name="Door5" parent="Scene/ParallaxBackground/ParallaxLayer/Doors" index="4" instance=ExtResource("3_4cyfr")]
+position = Vector2(900, 135)
+
+[node name="Door6" parent="Scene/ParallaxBackground/ParallaxLayer/Doors" index="5" instance=ExtResource("3_4cyfr")]
+position = Vector2(112, -90)
+
+[node name="Door7" parent="Scene/ParallaxBackground/ParallaxLayer/Doors" index="6" instance=ExtResource("3_4cyfr")]
+position = Vector2(378, -90)
+
+[node name="Door8" parent="Scene/ParallaxBackground/ParallaxLayer/Doors" index="7" instance=ExtResource("3_4cyfr")]
+position = Vector2(631, -90)
+
+[node name="Door9" parent="Scene/ParallaxBackground/ParallaxLayer/Doors" index="8" instance=ExtResource("3_4cyfr")]
+position = Vector2(900, -90)
+
+[node name="Door10" parent="Scene/ParallaxBackground/ParallaxLayer/Doors" index="9" instance=ExtResource("3_4cyfr")]
+position = Vector2(900, 360)
+
+[node name="Player" parent="Scene/ParallaxBackground/ParallaxLayer" index="4" instance=ExtResource("3_mj5oi")]
+position = Vector2(-150, 361)
+
+[node name="Victim" parent="Scene/ParallaxBackground/ParallaxLayer" index="5" instance=ExtResource("4_ncmy3")]
+visible = false
+position = Vector2(900, 361)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+"": SubResource("AnimationLibrary_ubddk")
+}
