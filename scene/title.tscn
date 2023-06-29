@@ -7,51 +7,57 @@
 [node name="M" parent="." instance=ExtResource("1_me0ow")]
 position = Vector2(-83, 0)
 scale = Vector2(3.2, 3.2)
-color = Color(0.254902, 0.396078, 0.67451, 1)
+color = Color(0.19, 0.293333, 0.5, 1)
 
 [node name="M2" parent="." instance=ExtResource("1_me0ow")]
 position = Vector2(-83, -16)
 rotation = 0.785398
 scale = Vector2(1.6, 1.6)
+color = Color(0.8, 0.564706, 0.796078, 1)
 
 [node name="E" parent="." instance=ExtResource("1_me0ow")]
 position = Vector2(-42, 0)
 scale = Vector2(3.2, 3.2)
-color = Color(0.254902, 0.396078, 0.67451, 1)
+color = Color(0.19, 0.293333, 0.5, 1)
 
 [node name="E2" parent="." instance=ExtResource("1_me0ow")]
 position = Vector2(-32, -3)
 scale = Vector2(1.6, 1.6)
+color = Color(0.8, 0.564706, 0.796078, 1)
 
 [node name="T" parent="." instance=ExtResource("1_me0ow")]
 scale = Vector2(3.2, 3.2)
-color = Color(0.254902, 0.396078, 0.67451, 1)
+color = Color(0.19, 0.293333, 0.5, 1)
 
 [node name="T2" parent="." instance=ExtResource("1_me0ow")]
 position = Vector2(-8, 8)
 scale = Vector2(1.6, 1.6)
+color = Color(0.8, 0.564706, 0.796078, 1)
 
 [node name="R" parent="." instance=ExtResource("1_me0ow")]
 position = Vector2(41, 0)
 scale = Vector2(3.2, 3.2)
-color = Color(0.254902, 0.396078, 0.67451, 1)
+color = Color(0.19, 0.293333, 0.5, 1)
 
 [node name="R2" parent="." instance=ExtResource("1_me0ow")]
 position = Vector2(57, 0)
 rotation = 0.785398
 scale = Vector2(1.2, 1.2)
+color = Color(0.8, 0.564706, 0.796078, 1)
 
 [node name="R3" parent="." instance=ExtResource("1_me0ow")]
 position = Vector2(41, 16)
 rotation = 0.785398
 scale = Vector2(1.2, 1.2)
+color = Color(0.8, 0.564706, 0.796078, 1)
 
 [node name="O" parent="." instance=ExtResource("1_me0ow")]
 position = Vector2(82, 0)
 scale = Vector2(3.2, 3.2)
-color = Color(0.254902, 0.396078, 0.67451, 1)
+color = Color(0.19, 0.293333, 0.5, 1)
 
 [node name="O2" parent="." instance=ExtResource("1_me0ow")]
 position = Vector2(82, -7.62939e-06)
 rotation = 0.785398
 scale = Vector2(1.6, 1.6)
+color = Color(0.8, 0.564706, 0.796078, 1)

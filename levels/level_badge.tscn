@@ -1,0 +1,265 @@
+[gd_scene load_steps=9 format=3 uid="uid://s33ead4g6x2l"]
+
+[ext_resource type="PackedScene" uid="uid://6jk4mjlkjis2" path="res://levels/Level.tscn" id="1_uw455"]
+[ext_resource type="Script" path="res://levels/level_badge.gd" id="2_mci16"]
+[ext_resource type="PackedScene" uid="uid://i214mwnokh7o" path="res://scene/title.tscn" id="3_a6lr4"]
+[ext_resource type="PackedScene" uid="uid://ckp3hw4btpj7n" path="res://scene/cube.tscn" id="3_y701v"]
+
+[sub_resource type="Animation" id="Animation_5nhfa"]
+resource_name = "start game"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scene/Title:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WhiteBands/Ground/SpaceBar:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_my6bb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scene/Title:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scene/DoorL:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(220, 270)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Scene/DoorR:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(390, 270)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WhiteBands/Ground/SpaceBar:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Scene/arm:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(328, 922)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Scene/arm:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1vfrj"]
+resource_name = "enter metro"
+length = 4.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scene/DoorL:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(220, -0.25, 0, 0.2, -78.0421, 127, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(3, 4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scene/DoorR:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(390, -0.25, 0, 0.2, 79.2302, 480, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(3, 4)
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"go_to_next_level"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Scene/arm:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.2, 1.5, 1.8, 2.3, 3.3, 3.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(328, 922), Vector2(328, 578), Vector2(328, 578), Vector2(328, 554), Vector2(328, 578), Vector2(328, 578), Vector2(328, 578), Vector2(356, 914)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Scene/arm:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3, 0.7, 1.2, 1.5, 1.8, 2.2, 2.3, 2.4, 2.6, 2.8, 3, 3.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.523598, -0.674474, -0.674474, -0.485108, -0.69158, -0.69158, -0.485108, -0.69158, -0.69158, -0.485108, -0.69158, -0.339804]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wo6ft"]
+_data = {
+"RESET": SubResource("Animation_my6bb"),
+"enter metro": SubResource("Animation_1vfrj"),
+"start game": SubResource("Animation_5nhfa")
+}
+
+[node name="LevelBadge" instance=ExtResource("1_uw455")]
+script = ExtResource("2_mci16")
+next_level = "res://levels/intro.tscn"
+
+[node name="npc" type="Node2D" parent="Scene" index="0"]
+position = Vector2(0, 400)
+scale = Vector2(3.5, 3.5)
+
+[node name="DoorL" type="Node2D" parent="Scene" index="1"]
+position = Vector2(220, 270)
+metadata/_edit_group_ = true
+
+[node name="Glass" parent="Scene/DoorL" index="0" instance=ExtResource("3_y701v")]
+scale = Vector2(15, 50)
+color = Color(0.215686, 0.615686, 0.74902, 0.513726)
+
+[node name="Border" parent="Scene/DoorL" index="1" instance=ExtResource("3_y701v")]
+position = Vector2(66, 0)
+scale = Vector2(3, 50)
+color = Color(0.75, 0.75, 0.75, 1)
+
+[node name="DoorR" type="Node2D" parent="Scene" index="2"]
+position = Vector2(390, 270)
+metadata/_edit_group_ = true
+
+[node name="Glass" parent="Scene/DoorR" index="0" instance=ExtResource("3_y701v")]
+scale = Vector2(15, 50)
+color = Color(0.215686, 0.615686, 0.74902, 0.513726)
+
+[node name="Border" parent="Scene/DoorR" index="1" instance=ExtResource("3_y701v")]
+position = Vector2(-75, 0)
+scale = Vector2(3, 50)
+color = Color(0.75, 0.75, 0.75, 1)
+
+[node name="Badger1" parent="Scene" index="3" instance=ExtResource("3_y701v")]
+position = Vector2(93, 390)
+scale = Vector2(15, 20)
+color = Color(0.415686, 0.415686, 0.415686, 1)
+
+[node name="Cube2" parent="Scene/Badger1" index="1" instance=ExtResource("3_y701v")]
+position = Vector2(1.06667, -2.1)
+scale = Vector2(0.5, 0.2)
+color = Color(0.929412, 0.909804, 0, 1)
+
+[node name="Cube4" parent="Scene/Badger1" index="2" instance=ExtResource("3_y701v")]
+position = Vector2(1.06667, -0.649994)
+scale = Vector2(0.5, 0.05)
+color = Color(0, 0, 0, 1)
+
+[node name="Badger2" parent="Scene" index="4" instance=ExtResource("3_y701v")]
+position = Vector2(505, 390)
+scale = Vector2(15, 20)
+color = Color(0.415686, 0.415686, 0.415686, 1)
+
+[node name="Cube2" parent="Scene/Badger2" index="1" instance=ExtResource("3_y701v")]
+position = Vector2(1.06667, -2.1)
+scale = Vector2(0.5, 0.2)
+color = Color(0.929412, 0.909804, 0, 1)
+
+[node name="Cube4" parent="Scene/Badger2" index="2" instance=ExtResource("3_y701v")]
+position = Vector2(1.06667, -0.649994)
+scale = Vector2(0.5, 0.05)
+color = Color(0, 0, 0, 1)
+
+[node name="Title" parent="Scene" index="5" instance=ExtResource("3_a6lr4")]
+position = Vector2(300, 175)
+scale = Vector2(2.5, 2.5)
+
+[node name="arm" type="Node2D" parent="Scene" index="6"]
+position = Vector2(328, 922)
+scale = Vector2(6, 8)
+metadata/_edit_group_ = true
+
+[node name="Card" parent="Scene/arm" index="0" instance=ExtResource("3_y701v")]
+position = Vector2(-3.33334, -36)
+
+[node name="Hand" parent="Scene/arm" index="1" instance=ExtResource("3_y701v")]
+position = Vector2(0.499992, -12.25)
+scale = Vector2(0.833333, 5)
+color = Color(0.027451, 1, 0.2, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+"": SubResource("AnimationLibrary_wo6ft")
+}

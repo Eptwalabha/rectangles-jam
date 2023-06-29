@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://6jk4mjlkjis2"]
+[gd_scene load_steps=5 format=3 uid="uid://6jk4mjlkjis2"]
 
 [ext_resource type="Script" path="res://levels/Level.gd" id="1_kybfy"]
 [ext_resource type="PackedScene" uid="uid://bk11xepy8ew52" path="res://scene/core/fade.tscn" id="2_fcgqh"]
+[ext_resource type="PackedScene" uid="uid://bnawhs3mkm3fp" path="res://levels/space_bar.tscn" id="3_hy24i"]
 [ext_resource type="PackedScene" uid="uid://ckp3hw4btpj7n" path="res://scene/cube.tscn" id="3_y1ore"]
 
 [node name="Level" type="Node2D"]
@@ -28,6 +29,10 @@ layer = 19
 position = Vector2(300, 550)
 scale = Vector2(62, 12)
 metadata/_edit_lock_ = true
+
+[node name="SpaceBar" parent="WhiteBands/Ground" instance=ExtResource("3_hy24i")]
+visible = false
+scale = Vector2(0.0241935, 0.125)
 
 [node name="Ceiling" parent="WhiteBands" instance=ExtResource("3_y1ore")]
 position = Vector2(300, 50)

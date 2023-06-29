@@ -43,7 +43,7 @@ func _on_cut_scene_1_area_entered(area: Area2D) -> void:
 		player.moving = false
 		player.surprised()
 		t.tween_interval(1.5)
-		t.tween_property(camera, "position:x", victim.position.x - 200, 1.5)
+		t.tween_property(camera, "position:x", victim.position.x - 100, 1.5)
 		t.tween_interval(1.0)
 		t.tween_property(camera, "position:x", player.position.x, .8)
 		t.tween_callback(func ():

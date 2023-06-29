@@ -5,6 +5,7 @@ extends Level
 @onready var player: Player = $Scene/ParallaxBackground/ParallaxLayer/Player
 @onready var doors_container: Node2D = $Scene/ParallaxBackground/ParallaxLayer/Doors
 @onready var doors : Array[Door] = [
+	$Scene/ParallaxBackground/ParallaxLayer/Doors/Door0,
 	$Scene/ParallaxBackground/ParallaxLayer/Doors/Door1,
 	$Scene/ParallaxBackground/ParallaxLayer/Doors/Door2,
 	$Scene/ParallaxBackground/ParallaxLayer/Doors/Door3,
@@ -13,8 +14,7 @@ extends Level
 	$Scene/ParallaxBackground/ParallaxLayer/Doors/Door6,
 	$Scene/ParallaxBackground/ParallaxLayer/Doors/Door7,
 	$Scene/ParallaxBackground/ParallaxLayer/Doors/Door8,
-	$Scene/ParallaxBackground/ParallaxLayer/Doors/Door9,
-	$Scene/ParallaxBackground/ParallaxLayer/Doors/Door10
+	$Scene/ParallaxBackground/ParallaxLayer/Doors/Door9
 ]
 
 var player_in_transition : bool = false
@@ -47,7 +47,7 @@ func move_player_to_door(door_num: int) -> void:
 	player.vanish()
 
 func _player_enter_door(door: Door) -> void:
-	if door.name == "Door10":
+	if door.name == "Door9":
 		anim.play("player outro")
 	elif player_in_transition:
 		return
@@ -56,13 +56,13 @@ func _player_enter_door(door: Door) -> void:
 
 func get_next_door(door: Door) -> int:
 	match door.name:
-		"Door1": return 6
-		"Door2": return 7
-		"Door3": return 5
-		"Door4": return 8
-		"Door5": return 9
-		"Door6": return 2
-		"Door7": return 0
-		"Door8": return 1
-		"Door9": return 3
+		"Door0": return 6
+		"Door1": return 7
+		"Door2": return 5
+		"Door3": return 8
+		"Door4": return 9
+		"Door5": return 2
+		"Door6": return 0
+		"Door7": return 1
+		"Door8": return 3
 	return 8

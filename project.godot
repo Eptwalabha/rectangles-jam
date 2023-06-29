@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Rectangles-jam"
 config/tags=PackedStringArray("itch_jam")
-run/main_scene="res://levels/intro.tscn"
+run/main_scene="res://levels/level_badge.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 

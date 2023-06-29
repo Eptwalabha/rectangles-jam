@@ -10,6 +10,7 @@ var NPC_CHARACTER = preload("res://scene/characters/npc.tscn")
 @export_file("*.tscn") var next_level : String = ""
 @export var free_camera : bool = false
 @export var current_camera_mode : Level.CAMERA_MODE = CAMERA_MODE.FOLLOW_PLAYER
+@onready var space_bar: Node2D = $WhiteBands/Ground/SpaceBar
 
 enum CAMERA_MODE {
 	FOLLOW_PLAYER,
@@ -47,5 +48,5 @@ func go_to_next_level() -> void:
 	is_level_over = true
 	fade.fade_out()
 	
-func _display_ui_space(_is_displayed: bool) -> void:
-	pass
+func _display_ui_space(is_displayed: bool) -> void:
+	space_bar.visible = is_displayed
