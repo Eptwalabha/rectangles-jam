@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Rectangles-jam"
+config/name="metro"
+config/description="A regular day in a subway."
 config/tags=PackedStringArray("itch_jam")
 run/main_scene="res://levels/level_badge.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
@@ -26,10 +27,15 @@ UiEventBus="*res://scene/core/ui_event_bus.gd"
 window/size/viewport_width=600
 window/size/viewport_height=600
 window/stretch/mode="viewport"
+window/vsync/vsync_mode=0
 
 [editor]
 
 movie_writer/movie_file="/tmp/demo.avi"
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 
@@ -51,7 +57,3 @@ action={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"echo":false,"script":null)
 ]
 }
-
-[rendering]
-
-renderer/rendering_method="mobile"

@@ -142,8 +142,8 @@ position = Vector2(175, -75)
 scale = Vector2(20, 9)
 
 [node name="Body2" parent="." instance=ExtResource("1_ppy64")]
-position = Vector2(0, -13)
-scale = Vector2(100, 4)
+position = Vector2(-175, -13)
+scale = Vector2(20, 4)
 color = Color(0.254902, 0.396078, 0.67451, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
