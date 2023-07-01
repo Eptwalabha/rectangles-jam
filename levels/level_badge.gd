@@ -3,6 +3,7 @@ extends Level
 
 @onready var npc_bucket: Node2D = $Scene/npc
 @onready var anim: AnimationPlayer = $AnimationPlayer
+@onready var title: Node2D = $Scene/Title
 
 var state : int = 0
 
@@ -19,7 +20,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("action") and state < 2:
 		if state == 0:
 			state = 1
-			anim.play("start game")
+			var t = get_tree().create_tween()
+			t.tween_property(title, "modulate:a", 0, 1.0)
 		else:
 			state = 2
 			anim.play("enter metro")

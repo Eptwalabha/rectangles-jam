@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://s33ead4g6x2l"]
+[gd_scene load_steps=8 format=3 uid="uid://s33ead4g6x2l"]
 
 [ext_resource type="PackedScene" uid="uid://6jk4mjlkjis2" path="res://levels/Level.tscn" id="1_uw455"]
 [ext_resource type="Script" path="res://levels/level_badge.gd" id="2_mci16"]
@@ -10,70 +10,46 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Scene/Title:modulate")
+tracks/0/path = NodePath("Scene/DoorL:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(220, 270)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Scene/DoorL:position")
+tracks/1/path = NodePath("Scene/DoorR:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(220, 270)]
+"values": [Vector2(390, 270)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Scene/DoorR:position")
+tracks/2/path = NodePath("Scene/arm:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(390, 270)]
+"values": [Vector2(328, 922)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("WhiteBands/Ground/SpaceBar:modulate")
+tracks/3/path = NodePath("Scene/arm:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Scene/arm:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(328, 922)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Scene/arm:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -143,39 +119,23 @@ tracks/4/keys = {
 "update": 0,
 "values": [-0.523598, -0.674474, -0.674474, -0.485108, -0.69158, -0.69158, -0.485108, -0.69158, -0.69158, -0.485108, -0.69158, -0.339804]
 }
-
-[sub_resource type="Animation" id="Animation_5nhfa"]
-resource_name = "start game"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Scene/Title:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WhiteBands/Ground/SpaceBar:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("WhiteBands/Ground/SpaceBar:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wo6ft"]
 _data = {
 "RESET": SubResource("Animation_my6bb"),
-"enter metro": SubResource("Animation_1vfrj"),
-"start game": SubResource("Animation_5nhfa")
+"enter metro": SubResource("Animation_1vfrj")
 }
 
 [node name="LevelBadge" instance=ExtResource("1_uw455")]
