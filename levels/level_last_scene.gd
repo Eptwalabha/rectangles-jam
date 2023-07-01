@@ -20,6 +20,7 @@ var flag : bool = false
 func _ready() -> void:
 	super._ready()
 	play_next_scene()
+	
 
 func play_next_scene() -> void:
 	match scene:

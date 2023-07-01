@@ -107,90 +107,6 @@ tracks/7/keys = {
 "values": [Vector2(-379, 337)]
 }
 
-[sub_resource type="Animation" id="Animation_2nbbr"]
-resource_name = "hit doors"
-length = 5.0
-step = 0.01
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Scene/doors/Player:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(),
-"points": PackedFloat32Array(),
-"times": PackedFloat32Array()
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Scene/doors/Player:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
-"points": PackedFloat32Array(450, -0.25, 0, 0.25, 0, 450, -0.313484, 1.53424, 0.0291466, 1.53415, 390, -0.100853, 9.65939, 0.0791465, 0.227631, 450, -0.0508535, -0.823792, 0.149146, 1.53415, 386, -0.190853, 4.22763, 0.25, 0),
-"times": PackedFloat32Array(0, 1.4, 1.5, 1.6, 1.87)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Scene/doors/Player:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.2, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -1.57362, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(1.4, 1.5, 1.6, 1.87)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Scene/doors/Player:scale:x")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0, 5, -0.15, -1.71075, 0.25, 0),
-"times": PackedFloat32Array(0, 1.4)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Scene/doors/Player:scale:y")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 3, 3, 2),
-"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0, 5, -0.0288996, -0.00130796, 0.0288996, 0.00130796, 4.5, -0.0311005, -0.020247, 0.0311005, 0.020247, 5, -0.0411005, -0.0213685, 0, 0),
-"times": PackedFloat32Array(0, 1.4, 1.5, 1.6)
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Scene/doors/DoorL:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(1.3, 1.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(123, 270), Vector2(220, 270)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Scene/doors/DoorR:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(1.3, 1.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(484, 270), Vector2(390, 270)]
-}
-
 [sub_resource type="Animation" id="Animation_5b5hm"]
 resource_name = "exit train"
 length = 11.0
@@ -306,6 +222,90 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(300, 0), Vector2(400, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2nbbr"]
+resource_name = "hit doors"
+length = 5.0
+step = 0.01
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scene/doors/Player:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scene/doors/Player:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(450, -0.25, 0, 0.25, 0, 450, -0.313484, 1.53424, 0.0291466, 1.53415, 390, -0.100853, 9.65939, 0.0791465, 0.227631, 450, -0.0508535, -0.823792, 0.149146, 1.53415, 386, -0.190853, 4.22763, 0.25, 0),
+"times": PackedFloat32Array(0, 1.4, 1.5, 1.6, 1.87)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Scene/doors/Player:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.2, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -1.57362, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.4, 1.5, 1.6, 1.87)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Scene/doors/Player:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0, 5, -0.15, -1.71075, 0.25, 0),
+"times": PackedFloat32Array(0, 1.4)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Scene/doors/Player:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 3, 3, 2),
+"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0, 5, -0.0288996, -0.00130796, 0.0288996, 0.00130796, 4.5, -0.0311005, -0.020247, 0.0311005, 0.020247, 5, -0.0411005, -0.0213685, 0, 0),
+"times": PackedFloat32Array(0, 1.4, 1.5, 1.6)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Scene/doors/DoorL:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.3, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(123, 270), Vector2(220, 270)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Scene/doors/DoorR:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.3, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(484, 270), Vector2(390, 270)]
 }
 
 [sub_resource type="Animation" id="Animation_a1xc0"]
@@ -686,7 +686,6 @@ position = Vector2(0, 1000)
 
 [node name="scale" type="Node2D" parent="Scene/steal_handbag/shot" index="0"]
 position = Vector2(300, 987)
-scale = Vector2(1, 1)
 
 [node name="PlayerPrison" parent="Scene/steal_handbag/shot/scale" index="0" instance=ExtResource("5_55uy7")]
 rotation = 0.0445868
@@ -699,7 +698,6 @@ scale = Vector2(10, 10)
 
 [node name="Arm" type="Node2D" parent="Scene/steal_handbag/shot/scale" index="2"]
 position = Vector2(-379, 337)
-scale = Vector2(1, 1)
 
 [node name="Handbag" parent="Scene/steal_handbag/shot/scale/Arm" index="0" instance=ExtResource("3_5k0f2")]
 visible = false
