@@ -269,7 +269,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0, 5, -0.15, -1.71075, 0.25, 0),
+"points": PackedFloat32Array(2, -0.25, 0, 0.6, 0, 5, -0.2, -0.2, 0.25, 0),
 "times": PackedFloat32Array(0, 1.4)
 }
 tracks/4/type = "bezier"
@@ -279,9 +279,9 @@ tracks/4/path = NodePath("Scene/doors/Player:scale:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 3, 3, 2),
-"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0, 5, -0.0288996, -0.00130796, 0.0288996, 0.00130796, 4.5, -0.0311005, -0.020247, 0.0311005, 0.020247, 5, -0.0411005, -0.0213685, 0, 0),
-"times": PackedFloat32Array(0, 1.4, 1.5, 1.6)
+"handle_modes": PackedInt32Array(0, 0, 0, 3, 2),
+"points": PackedFloat32Array(2, -0.25, 0, 0.6, 0, 5, -0.2, -0.2, 0.25, 0, 5, -0.0288996, -0.00130796, 0.0288996, 0.00130796, 4.5, -0.0311005, -0.020247, 0.0311005, 0.020247, 5, -0.0411005, -0.0213685, 0, 0),
+"times": PackedFloat32Array(0, 1.4, 1.44, 1.5, 1.6)
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -306,6 +306,23 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(484, 270), Vector2(390, 270)]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Scene/doors/Player")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"run"
+}, {
+"args": [],
+"method": &"stop_running"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_a1xc0"]
@@ -480,7 +497,7 @@ _data = {
 
 [node name="LastScene" instance=ExtResource("1_n2i40")]
 script = ExtResource("2_m3t0o")
-scene = 0
+scene = 3
 next_level = "res://levels/level_badge.tscn"
 
 [node name="Camera" parent="." index="0"]
@@ -558,90 +575,50 @@ color = Color(0, 0, 0, 1)
 position = Vector2(2766, 0)
 
 [node name="PlayerPrison" parent="Scene/prison" index="0" instance=ExtResource("5_55uy7")]
-position = Vector2(355, 449)
-scale = Vector2(4, 4)
+position = Vector2(105, 648)
+scale = Vector2(6, 6)
 color = Color(0.027451, 1, 0.2, 1)
 
 [node name="Bars" type="Node2D" parent="Scene/prison" index="1"]
 
 [node name="Cube" parent="Scene/prison/Bars" index="0" instance=ExtResource("3_5k0f2")]
 position = Vector2(0, 300)
-scale = Vector2(2, 60)
+scale = Vector2(3, 60)
 color = Color(0.25, 0.25, 0.25, 1)
 
-[node name="Cube2" parent="Scene/prison/Bars" index="1" instance=ExtResource("3_5k0f2")]
-position = Vector2(50, 300)
-scale = Vector2(2, 60)
-color = Color(0.25, 0.25, 0.25, 1)
-
-[node name="Cube3" parent="Scene/prison/Bars" index="2" instance=ExtResource("3_5k0f2")]
+[node name="Cube3" parent="Scene/prison/Bars" index="1" instance=ExtResource("3_5k0f2")]
 position = Vector2(100, 300)
-scale = Vector2(2, 60)
+scale = Vector2(3, 60)
 color = Color(0.25, 0.25, 0.25, 1)
 
-[node name="Cube4" parent="Scene/prison/Bars" index="3" instance=ExtResource("3_5k0f2")]
-position = Vector2(150, 300)
-scale = Vector2(2, 60)
-color = Color(0.25, 0.25, 0.25, 1)
-
-[node name="Cube5" parent="Scene/prison/Bars" index="4" instance=ExtResource("3_5k0f2")]
+[node name="Cube5" parent="Scene/prison/Bars" index="2" instance=ExtResource("3_5k0f2")]
 position = Vector2(200, 300)
-scale = Vector2(2, 60)
+scale = Vector2(3, 60)
 color = Color(0.25, 0.25, 0.25, 1)
 
-[node name="Cube6" parent="Scene/prison/Bars" index="5" instance=ExtResource("3_5k0f2")]
-position = Vector2(250, 300)
-scale = Vector2(2, 60)
-color = Color(0.25, 0.25, 0.25, 1)
-
-[node name="Cube7" parent="Scene/prison/Bars" index="6" instance=ExtResource("3_5k0f2")]
+[node name="Cube7" parent="Scene/prison/Bars" index="3" instance=ExtResource("3_5k0f2")]
 position = Vector2(300, 300)
-scale = Vector2(2, 60)
+scale = Vector2(3, 60)
 color = Color(0.25, 0.25, 0.25, 1)
 
-[node name="Cube8" parent="Scene/prison/Bars" index="7" instance=ExtResource("3_5k0f2")]
-position = Vector2(350, 300)
-scale = Vector2(2, 60)
-color = Color(0.25, 0.25, 0.25, 1)
-
-[node name="Cube9" parent="Scene/prison/Bars" index="8" instance=ExtResource("3_5k0f2")]
+[node name="Cube9" parent="Scene/prison/Bars" index="4" instance=ExtResource("3_5k0f2")]
 position = Vector2(400, 300)
-scale = Vector2(2, 60)
+scale = Vector2(3, 60)
 color = Color(0.25, 0.25, 0.25, 1)
 
-[node name="Cube10" parent="Scene/prison/Bars" index="9" instance=ExtResource("3_5k0f2")]
-position = Vector2(450, 300)
-scale = Vector2(2, 60)
-color = Color(0.25, 0.25, 0.25, 1)
-
-[node name="Cube11" parent="Scene/prison/Bars" index="10" instance=ExtResource("3_5k0f2")]
+[node name="Cube11" parent="Scene/prison/Bars" index="5" instance=ExtResource("3_5k0f2")]
 position = Vector2(500, 300)
-scale = Vector2(2, 60)
+scale = Vector2(3, 60)
 color = Color(0.25, 0.25, 0.25, 1)
 
-[node name="Cube12" parent="Scene/prison/Bars" index="11" instance=ExtResource("3_5k0f2")]
-position = Vector2(550, 300)
-scale = Vector2(2, 60)
-color = Color(0.25, 0.25, 0.25, 1)
-
-[node name="Cube13" parent="Scene/prison/Bars" index="12" instance=ExtResource("3_5k0f2")]
+[node name="Cube13" parent="Scene/prison/Bars" index="6" instance=ExtResource("3_5k0f2")]
 position = Vector2(600, 300)
-scale = Vector2(2, 60)
+scale = Vector2(3, 60)
 color = Color(0.25, 0.25, 0.25, 1)
 
-[node name="Cube14" parent="Scene/prison/Bars" index="13" instance=ExtResource("3_5k0f2")]
-position = Vector2(650, 300)
-scale = Vector2(2, 60)
-color = Color(0.25, 0.25, 0.25, 1)
-
-[node name="Cube15" parent="Scene/prison/Bars" index="14" instance=ExtResource("3_5k0f2")]
+[node name="Cube15" parent="Scene/prison/Bars" index="7" instance=ExtResource("3_5k0f2")]
 position = Vector2(700, 300)
-scale = Vector2(2, 60)
-color = Color(0.25, 0.25, 0.25, 1)
-
-[node name="Cube16" parent="Scene/prison/Bars" index="15" instance=ExtResource("3_5k0f2")]
-position = Vector2(750, 300)
-scale = Vector2(2, 60)
+scale = Vector2(3, 60)
 color = Color(0.25, 0.25, 0.25, 1)
 
 [node name="exitTrain" type="Node2D" parent="Scene" index="2"]
@@ -696,6 +673,9 @@ color = Color(0.027451, 1, 0.2, 1)
 visible = false
 scale = Vector2(10, 10)
 
+[node name="Pivot" parent="Scene/steal_handbag/shot/scale/Victim" index="0"]
+scale = Vector2(1, 1.05724)
+
 [node name="Arm" type="Node2D" parent="Scene/steal_handbag/shot/scale" index="2"]
 position = Vector2(-379, 337)
 
@@ -716,6 +696,9 @@ position = Vector2(4, 423)
 [node name="Victim" parent="Scene/steal_handbag/actors" index="0" instance=ExtResource("6_nxjjv")]
 position = Vector2(400, 0)
 scale = Vector2(-1, 1)
+
+[node name="Pivot" parent="Scene/steal_handbag/actors/Victim" index="0"]
+scale = Vector2(1, 1.05724)
 
 [node name="Player" parent="Scene/steal_handbag/actors" index="1" instance=ExtResource("5_55uy7")]
 position = Vector2(350, 0)

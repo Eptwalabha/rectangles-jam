@@ -33,6 +33,13 @@ func appear() -> void:
 func surprised() -> void:
 	anim.play("surprise")
 
+func run() -> void:
+	anim.play("run")
+
+func stop_running() -> void:
+	if anim.is_playing() and anim.current_animation == "run":
+		anim.stop()
+
 func randomize_character() -> void:
 	randomize_size()
 	modulate.v = .6 + randf() * .4

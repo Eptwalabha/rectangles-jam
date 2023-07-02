@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bweimn7xy5ccn"]
+[gd_scene load_steps=10 format=3 uid="uid://bweimn7xy5ccn"]
 
 [ext_resource type="Script" path="res://scene/characters/character.gd" id="1_eeulc"]
 [ext_resource type="PackedScene" uid="uid://ckp3hw4btpj7n" path="res://scene/cube.tscn" id="1_ibpys"]
@@ -149,10 +149,28 @@ tracks/1/keys = {
 "times": PackedFloat32Array()
 }
 
+[sub_resource type="Animation" id="Animation_5pqen"]
+resource_name = "run"
+length = 0.3
+loop_mode = 1
+step = 0.05
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:scale:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(1, 0, 0),
+"points": PackedFloat32Array(1, 0, 0, 0, 0, 1.1, -0.1, 0, 0.1, 0, 1, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.15, 0.3)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dhyq3"]
 _data = {
 "RESET": SubResource("Animation_glfw1"),
 "appear": SubResource("Animation_edswb"),
+"run": SubResource("Animation_5pqen"),
 "surprise": SubResource("Animation_lrq4h"),
 "vanish": SubResource("Animation_tvmlh"),
 "walk": SubResource("Animation_22mmq")
@@ -162,6 +180,7 @@ _data = {
 script = ExtResource("1_eeulc")
 
 [node name="Pivot" type="Node2D" parent="."]
+scale = Vector2(1, 1.08191)
 
 [node name="Body" parent="Pivot" instance=ExtResource("1_ibpys")]
 position = Vector2(0, -32)
