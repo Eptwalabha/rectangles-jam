@@ -17,9 +17,10 @@ signal appeared
 
 func _ready() -> void:
 	pivot.scale *= size
-	_set_color()
+	set_color(color)
 
-func _set_color() -> void:
+func set_color(p_color: Color) -> void:
+	color = p_color
 	body.modulate = color
 	head.modulate = color
 
@@ -34,11 +35,12 @@ func surprised() -> void:
 
 func randomize_character() -> void:
 	randomize_size()
-	modulate.v = .5 + randf() * .5
+	modulate.v = .6 + randf() * .4
 	randomize_speed(100)
 
 func randomize_size() -> void:
 	size = 0.8 + randf() * .4
+	pivot.scale = Vector2(size, size)
 
 func randomize_speed(p_min: int) -> void:
 	speed = p_min + randi() % (200 - p_min)

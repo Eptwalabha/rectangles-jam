@@ -43,15 +43,15 @@ func close_train_doors() -> void:
 func init_level() -> void:
 	for i in range(15):
 		var npc : NPC = NPC_CHARACTER.instantiate()
-		npc.randomize_character()
 		npc_1.add_child(npc)
+		npc.randomize_character()
 		npc.target_reached.connect(func (): _respawn_npc(npc))
 		npc.global_position.x = LEFT + randi() % (RIGHT - LEFT)
 		npc.random_move_from_to(LEFT, RIGHT)
 	for i in range(5):
 		var npc : NPC = NPC_CHARACTER.instantiate()
-		npc.randomize_character()
 		npc_2.add_child(npc)
+		npc.randomize_character()
 		npc.global_position.x = LEFT + randi() % (RIGHT - LEFT)
 		npc.random_move_from_to(LEFT, RIGHT)
 
@@ -96,9 +96,9 @@ func _respawn_npc(npc: NPC) -> void:
 
 func _on_spawner_timeout() -> void:
 	var npc : NPC = NPC_CHARACTER.instantiate()
-	npc.randomize_character()
-	npc.color = Color.RED
 	npc_0.add_child(npc)
+	npc.randomize_character()
+	npc.set_color(Color.RED)
 	npc.position.x = _door_position((current_door + randi() % 2 + 1) % 3) + randi() % 70 - 35
 	npc.appear()
 	npc.appeared.connect(func ():

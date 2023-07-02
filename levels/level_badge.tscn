@@ -55,6 +55,39 @@ tracks/3/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Scene/Badger1/Cube2:color:r")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.929412, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Scene/Badger1/Cube2:color:g")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.909804, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Scene/Badger1/Cube2:color:b")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_1vfrj"]
 resource_name = "enter metro"
@@ -131,6 +164,39 @@ tracks/5/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Scene/Badger1/Cube2:color:r")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.929412, -0.25, 0, 0.25, 0, 0.929412, -0.25, 0, 0.25, 0, 0.929412, -0.25, 0, 0.25, 0, 0.929412, -0.25, 0, 0.25, 0, 0.929412, -0.25, 0, 0.25, 0, 0.929412, -0.25, 0, 0.25, 0, 0.929412, -0.25, 0, 0.25, 0, 0.929412, -0.25, 0, 0.25, 0, 0.929412, -0.25, 0, 0.25, 0, 0.929412, -0.25, 0, 0.25, 0, 0.929412, -0.25, 0, 0.25, 0, 0.929412, -0.25, 0, 0.25, 0, 0.929412, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.9, 1, 1.1, 1.5, 1.9, 2, 2.1, 2.3, 2.5, 2.6, 2.7, 2.9, 3)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Scene/Badger1/Cube2:color:g")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.909804, -0.25, 0, 0.25, 0, 0.909804, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0.909804, -0.25, 0, 0.25, 0, 0.909804, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0.909804, -0.25, 0, 0.25, 0, 0.909804, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0.909804, -0.25, 0, 0.25, 0, 0.909804, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.9, 1, 1.1, 1.5, 1.9, 2, 2.1, 2.3, 2.5, 2.6, 2.7, 2.9, 3)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Scene/Badger1/Cube2:color:b")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.9, 1, 1.1, 1.5, 3)
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wo6ft"]
 _data = {
@@ -144,7 +210,7 @@ next_level = "res://levels/intro.tscn"
 
 [node name="npc" type="Node2D" parent="Scene" index="0"]
 position = Vector2(0, 400)
-scale = Vector2(3.5, 3.5)
+scale = Vector2(3, 3)
 
 [node name="DoorL" type="Node2D" parent="Scene" index="1"]
 position = Vector2(220, 270)

@@ -14,14 +14,14 @@ func _ready() -> void:
 	super._ready()
 	for i in range(10):
 		var npc : NPC = NPC_CHARACTER.instantiate()
-		npc.randomize_character()
 		npc_bucket_1.add_child(npc)
+		npc.randomize_character()
 		npc.position.x = 50 + randi() % 1300
 		npc.random_move_from_to(50, 1300)
 	for i in range(10):
 		var npc : NPC = NPC_CHARACTER.instantiate()
-		npc.randomize_character()
 		npc_bucket_2.add_child(npc)
+		npc.randomize_character()
 		npc.position.x = 50 + randi() % 1300
 		npc.random_move_from_to(50, 1300)
 

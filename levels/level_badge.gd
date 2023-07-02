@@ -28,5 +28,9 @@ func _input(event: InputEvent) -> void:
 
 func _randomize_npc(npc: NPC) -> void:
 	npc.randomize_character()
-	npc.position.x = randi() % 800 -100
-	npc.move_to(700 if randf() < .5 else -100)
+	if randf() < .5:
+		npc.position.x = -100
+		npc.move_to(700)
+	else:
+		npc.position.x = 700
+		npc.move_to(-100)
