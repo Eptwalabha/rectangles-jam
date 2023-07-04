@@ -497,7 +497,7 @@ _data = {
 
 [node name="LastScene" instance=ExtResource("1_n2i40")]
 script = ExtResource("2_m3t0o")
-scene = 3
+scene = 0
 next_level = "res://levels/level_badge.tscn"
 
 [node name="Camera" parent="." index="0"]

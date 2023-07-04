@@ -14,10 +14,9 @@ func _ready() -> void:
 		npc_bucket.add_child(npc)
 		npc.moving = true
 		npc.target_reached.connect(_randomize_npc.bind(npc))
-	space_bar.visible = true
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("action") and state < 2:
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("action") and state < 2:
 		if state == 0:
 			state = 1
 			var t = get_tree().create_tween()
