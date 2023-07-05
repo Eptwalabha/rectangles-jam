@@ -126,6 +126,20 @@ tracks/9/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show_controls"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_sy7p6"]
 resource_name = "player outro"
@@ -200,10 +214,9 @@ _data = {
 [node name="UndergroudMaze" instance=ExtResource("1_3pxc3")]
 script = ExtResource("2_7is1t")
 next_level = "res://levels/level_enter_train.tscn"
-current_camera_mode = 2
 
 [node name="Camera" parent="." index="0"]
-position = Vector2(0, 50)
+position = Vector2(440.442, 50)
 zoom = Vector2(1.2, 1.2)
 
 [node name="Background" parent="Bg" index="0"]
@@ -262,7 +275,7 @@ position = Vector2(900, -90)
 position = Vector2(900, 360)
 
 [node name="Player" parent="Scene/ParallaxBackground/ParallaxLayer" index="4" instance=ExtResource("3_mj5oi")]
-position = Vector2(1147.83, 361)
+position = Vector2(100, 361)
 
 [node name="Victim" parent="Scene/ParallaxBackground/ParallaxLayer" index="5" instance=ExtResource("4_ncmy3")]
 visible = false

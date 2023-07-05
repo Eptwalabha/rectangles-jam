@@ -26,6 +26,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(my_action):
 		pressed(true)
+	elif Input.is_action_pressed(my_action):
+		top.position.y = -8
 	elif Input.is_action_just_released(my_action):
 		pressed(false)
 

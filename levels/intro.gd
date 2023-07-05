@@ -42,12 +42,14 @@ func _on_cut_scene_1_area_entered(area: Area2D) -> void:
 		current_camera_mode = CAMERA_MODE.FREE
 		player.moving = false
 		player.surprised()
+		hide_controls()
 		t.tween_interval(1.5)
 		t.tween_property(camera, "position:x", victim.position.x - 100, 1.5)
 		t.tween_interval(1.0)
 		t.tween_property(camera, "position:x", player.position.x, .8)
 		t.tween_callback(func ():
 			current_camera_mode = CAMERA_MODE.FOLLOW_PLAYER
+			show_controls()
 			player.moving = true)
 
 func _on_cut_scene_2_area_entered(area: Area2D) -> void:
@@ -57,5 +59,6 @@ func _on_cut_scene_2_area_entered(area: Area2D) -> void:
 
 func _on_door_1_player_entered() -> void:
 	player.moving = false
+	hide_controls()
 	player.vanished.connect(func (): go_to_next_level())
 	player.vanish()

@@ -15,6 +15,10 @@ func _ready() -> void:
 		npc.moving = true
 		npc.target_reached.connect(_randomize_npc.bind(npc))
 
+func fade_in_over() -> void:
+	show_controls()
+	hint_control("action")
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("action") and state < 2:
 		if state == 0:

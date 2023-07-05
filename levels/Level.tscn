@@ -31,14 +31,14 @@ position = Vector2(300, 550)
 scale = Vector2(62, 12)
 metadata/_edit_lock_ = true
 
-[node name="Inputs" parent="WhiteBands/Ground" instance=ExtResource("4_0fufo")]
-position = Vector2(-4.83871, -5)
-scale = Vector2(0.016129, 0.0833333)
-
 [node name="Ceiling" parent="WhiteBands" instance=ExtResource("3_y1ore")]
 position = Vector2(300, 50)
 scale = Vector2(62, 12)
 metadata/_edit_lock_ = true
+
+[node name="Inputs" parent="WhiteBands" instance=ExtResource("4_0fufo")]
+position = Vector2(0, 490)
+scale = Vector2(0.999998, 1)
 
 [node name="Fade" parent="." instance=ExtResource("2_fcgqh")]
 visible = false

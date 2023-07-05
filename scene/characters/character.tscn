@@ -180,7 +180,6 @@ _data = {
 script = ExtResource("1_eeulc")
 
 [node name="Pivot" type="Node2D" parent="."]
-scale = Vector2(1, 1.08191)
 
 [node name="Body" parent="Pivot" instance=ExtResource("1_ibpys")]
 position = Vector2(0, -32)
