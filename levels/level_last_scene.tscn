@@ -85,7 +85,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Scene/steal_handbag/shot/scale/PlayerPrison:rotation")
+tracks/6/path = NodePath("Scene/steal_handbag/shot/scale/Player:rotation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -417,7 +417,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Scene/steal_handbag/shot/scale/PlayerPrison:visible")
+tracks/7/path = NodePath("Scene/steal_handbag/shot/scale/Player:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -441,7 +441,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Scene/steal_handbag/shot/scale/PlayerPrison:rotation")
+tracks/9/path = NodePath("Scene/steal_handbag/shot/scale/Player:rotation")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -497,7 +497,7 @@ _data = {
 
 [node name="LastScene" instance=ExtResource("1_n2i40")]
 script = ExtResource("2_m3t0o")
-scene = 3
+scene = 0
 next_level = "res://levels/level_badge.tscn"
 
 [node name="Camera" parent="." index="0"]
@@ -664,7 +664,7 @@ position = Vector2(0, 1000)
 [node name="scale" type="Node2D" parent="Scene/steal_handbag/shot" index="0"]
 position = Vector2(300, 987)
 
-[node name="PlayerPrison" parent="Scene/steal_handbag/shot/scale" index="0" instance=ExtResource("5_55uy7")]
+[node name="Player" parent="Scene/steal_handbag/shot/scale" index="0" instance=ExtResource("5_55uy7")]
 rotation = 0.0445868
 scale = Vector2(10, 10)
 color = Color(0.027451, 1, 0.2, 1)
@@ -672,9 +672,6 @@ color = Color(0.027451, 1, 0.2, 1)
 [node name="Victim" parent="Scene/steal_handbag/shot/scale" index="1" instance=ExtResource("6_nxjjv")]
 visible = false
 scale = Vector2(10, 10)
-
-[node name="Pivot" parent="Scene/steal_handbag/shot/scale/Victim" index="0"]
-scale = Vector2(1, 1.05724)
 
 [node name="Arm" type="Node2D" parent="Scene/steal_handbag/shot/scale" index="2"]
 position = Vector2(-379, 337)

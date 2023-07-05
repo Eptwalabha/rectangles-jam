@@ -72,6 +72,7 @@ func _process(_delta: float) -> void:
 	camera.position.x = player.position.x
 	if Input.is_action_just_pressed("action") and _player_can_interact():
 		go_to_next_level()
+		hide_controls()
 
 func _player_can_interact() -> bool:
 	return train.interactible and player_on_door

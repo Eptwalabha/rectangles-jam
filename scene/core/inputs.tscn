@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7dt4tpb0fxj4"]
+
+[ext_resource type="Script" path="res://scene/core/ui-inputs.gd" id="1_ygl12"]
+[ext_resource type="PackedScene" uid="uid://ckp3hw4btpj7n" path="res://scene/cube.tscn" id="2_y145n"]
+[ext_resource type="PackedScene" uid="uid://c45lyd82aqqe5" path="res://scene/core/ui/interactive-key.tscn" id="3_7271k"]
+
+[node name="Inputs" type="Node2D"]
+script = ExtResource("1_ygl12")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="SpaceKey" parent="." instance=ExtResource("3_7271k")]
+position = Vector2(450, 80)
+current_action = 2
+size = 20
+
+[node name="Arrows" type="Node2D" parent="."]
+position = Vector2(150, 80)
+
+[node name="LeftKey" parent="Arrows" instance=ExtResource("3_7271k")]
+position = Vector2(-55, 0)
+
+[node name="up" type="Node2D" parent="Arrows"]
+position = Vector2(0, -40)
+metadata/_edit_group_ = true
+
+[node name="Background" parent="Arrows/up" instance=ExtResource("2_y145n")]
+scale = Vector2(5, 3)
+color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="Key" type="Node2D" parent="Arrows/up"]
+visible = false
+
+[node name="Border" parent="Arrows/up/Key" instance=ExtResource("2_y145n")]
+position = Vector2(0, -5)
+scale = Vector2(4, 3)
+color = Color(0.607843, 0.607843, 0.607843, 1)
+
+[node name="Top" parent="Arrows/up/Key" instance=ExtResource("2_y145n")]
+position = Vector2(0, -15)
+scale = Vector2(4, 3)
+color = Color(0.384314, 0.384314, 0.384314, 1)
+
+[node name="bottom" type="Node2D" parent="Arrows"]
+metadata/_edit_group_ = true
+
+[node name="Background" parent="Arrows/bottom" instance=ExtResource("2_y145n")]
+scale = Vector2(5, 3)
+color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="Key" type="Node2D" parent="Arrows/bottom"]
+visible = false
+
+[node name="Border" parent="Arrows/bottom/Key" instance=ExtResource("2_y145n")]
+position = Vector2(0, -5)
+scale = Vector2(4, 3)
+color = Color(0.607843, 0.607843, 0.607843, 1)
+
+[node name="Top" parent="Arrows/bottom/Key" instance=ExtResource("2_y145n")]
+position = Vector2(0, -15)
+scale = Vector2(4, 3)
+color = Color(0.384314, 0.384314, 0.384314, 1)
+
+[node name="RightKey" parent="Arrows" instance=ExtResource("3_7271k")]
+position = Vector2(55, 0)
+current_action = 1

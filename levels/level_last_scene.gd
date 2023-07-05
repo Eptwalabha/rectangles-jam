@@ -20,7 +20,6 @@ var flag : bool = false
 func _ready() -> void:
 	super._ready()
 	play_next_scene()
-	
 
 func play_next_scene() -> void:
 	match scene:
@@ -34,12 +33,15 @@ func play_next_scene() -> void:
 			camera.position = doors.position
 			anim.play("hit doors")
 		SCENE.END_IN_PRISON:
+			show_controls()
+			hint_control("action")
 			camera.position = prison.position
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("action") and scene == SCENE.END_IN_PRISON:
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("action") and scene == SCENE.END_IN_PRISON:
 		if not flag:
 			flag = true
+			hide_controls()
 			go_to_next_level()
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

@@ -49,6 +49,7 @@ func move_player_to_door(door_num: int) -> void:
 func _player_enter_door(door: Door) -> void:
 	if door.name == "Door9":
 		anim.play("player outro")
+		hide_controls()
 	elif player_in_transition:
 		return
 	else:
