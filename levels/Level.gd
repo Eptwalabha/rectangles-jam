@@ -50,13 +50,12 @@ func go_to_next_level() -> void:
 func show_controls() -> void:
 	var t : Tween = get_tree().create_tween()
 	t.tween_property(inputs, "position:y", 490, .2)
-	t.tween_callback(func ():
-		inputs.set_active(true))
+	inputs.reset()
 
 func hide_controls() -> void:
 	var t : Tween = get_tree().create_tween()
 	t.tween_property(inputs, "position:y", 600, .2)
-	inputs.set_active(false)
+	inputs.reset()
 
 func hint_control(controle_name: String) -> void:
 	match controle_name:

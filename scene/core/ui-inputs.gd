@@ -8,10 +8,10 @@ extends Node2D
 var is_action_hint : bool = false
 var is_direction_hint : bool = false
 
-func set_active(is_active: bool) -> void:
-	space_key.set_active(is_active)
-	left_key.set_active(is_active)
-	right_key.set_active(is_active)
+func reset() -> void:
+	space_key.reset()
+	left_key.reset()
+	right_key.reset()
 
 func _process(_delta: float) -> void:
 	if is_action_hint and Input.is_action_just_pressed("action"):

@@ -3,7 +3,6 @@ extends Node2D
 
 @export var current_action: TYPE = TYPE.LEFT
 @export var size: int = 4
-@export var active : bool = false
 
 @onready var key: Node2D = $Key
 @onready var top: Node2D = $Key/Top
@@ -25,14 +24,10 @@ func _ready() -> void:
 	pressed(false)
 	my_action = _get_action()
 
-func set_active(is_active: bool) -> void:
-	if not is_active:
-		pressed(false)
-	active = is_active
+func reset() -> void:
+	Input.action_release(my_action)
 
 func _process(_delta: float) -> void:
-	if not active:
-		return
 	if Input.is_action_just_pressed(my_action):
 		pressed(true)
 	elif Input.is_action_pressed(my_action):
