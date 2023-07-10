@@ -26,6 +26,8 @@ UiEventBus="*res://scene/core/ui_event_bus.gd"
 
 window/size/viewport_width=600
 window/size/viewport_height=600
+window/size/window_width_override=800
+window/size/window_height_override=800
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 
